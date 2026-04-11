@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cr40qlmynhiqj"]
+
+[ext_resource type="PackedScene" uid="uid://bpi7iy00k470i" path="res://src/scenes/hero.tscn" id="1_kkvs4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fxj6"]
+
+[node name="Main" type="Node2D" unique_id=142894164]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=773912091]
+position = Vector2(266, 90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=864032770]
+shape = SubResource("RectangleShape2D_1fxj6")
+
+[node name="Hero" parent="." unique_id=92466931 instance=ExtResource("1_kkvs4")]
+position = Vector2(64, 96)

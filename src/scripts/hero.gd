@@ -14,17 +14,18 @@ func _process(delta: float) -> void:
 		handle_animation(direction)
 	else:
 		velocity = Vector2.ZERO
+		player_sprite.stop()
 	
 	move_and_collide(velocity)
 
 
 func handle_animation(dir):
 	# magic numbers for checking player direction
-	if sign(dir.x) == 1:
-		player_sprite.play("walk_right")
-	if sign(dir.x) == -1:
-		player_sprite.play("walk_left")
 	if sign(dir.y) == -1:
 		player_sprite.play("walk_up")
-	if sign(dir.y) == 1:
+	elif sign(dir.y) == 1:
 		player_sprite.play("walk_down")
+	elif sign(dir.x) == 1:
+		player_sprite.play("walk_right")
+	elif sign(dir.x) == -1:
+		player_sprite.play("walk_left")

@@ -143,12 +143,15 @@ size = Vector2(14, 16)
 
 [node name="Hero" type="CharacterBody2D" unique_id=92466931]
 motion_mode = 1
+platform_on_leave = 2
 script = ExtResource("1_7utag")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=837288254]
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_26pet")
 animation = &"walk_down"
 autoplay = "walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1542811734]
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_oyxmx")
