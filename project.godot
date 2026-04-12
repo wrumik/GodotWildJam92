@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 
 DialogueManager="*uid://c3rodes2l3gxb"
 PlayerUI="*uid://dh5j1i4pofm18"
-DirectionEnum="*uid://cobhjjtub64r7"
 
 [display]
 

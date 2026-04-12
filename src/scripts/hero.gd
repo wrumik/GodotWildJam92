@@ -28,21 +28,17 @@ func _process(delta: float) -> void:
 	# that also accounts for wall collisions
 	if !is_attacking && global_position == target_position:
 		if direction.x > 0 && !right_cast.is_colliding():
-			last_direction = direction
-			update_animation()
 			target_position.x += 8
 		elif direction.x < 0 && !left_cast.is_colliding():
-			last_direction = direction
-			update_animation()
 			target_position.x -= 8
 		elif direction.y > 0 && !down_cast.is_colliding():
-			last_direction = direction
-			update_animation()
 			target_position.y += 8
 		elif direction.y < 0 && !up_cast.is_colliding():
-			last_direction = direction
-			update_animation()
 			target_position.y -= 8
+	
+	if direction && !is_attacking:
+		last_direction = direction
+		update_animation()
 	
 	
 	global_position = global_position.move_toward(target_position, SPEED * delta)

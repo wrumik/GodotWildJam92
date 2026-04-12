@@ -9,6 +9,7 @@ const ChunkDirections: Script = preload("res://src/enums/direction_enum.gd")
 func _ready() -> void:
 	# map_chunk not set failsafe
 	map_chunk = get_parent()
+	body_entered.connect(_on_body_entered)
 
 
 func _on_body_entered(body: Node2D) -> void:

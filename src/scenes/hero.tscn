@@ -299,9 +299,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oyxmx"]
-size = Vector2(14, 4)
+size = Vector2(12, 4)
 
 [node name="Hero" type="CharacterBody2D" unique_id=92466931]
+z_index = 1
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_7utag")
@@ -319,11 +320,11 @@ shape = SubResource("RectangleShape2D_oyxmx")
 target_position = Vector2(0, 8)
 
 [node name="LeftCast" type="RayCast2D" parent="." unique_id=1736169212]
-position = Vector2(-7, -2)
+position = Vector2(-6, -2)
 target_position = Vector2(-8, 0)
 
 [node name="RightCast" type="RayCast2D" parent="." unique_id=1061119401]
-position = Vector2(7, -2)
+position = Vector2(6, -2)
 target_position = Vector2(8, 0)
 
 [node name="UpCast" type="RayCast2D" parent="." unique_id=1604041689]
