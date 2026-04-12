@@ -167,7 +167,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_down",
-"speed": 8.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -187,7 +187,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_left",
-"speed": 8.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -207,7 +207,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_right",
-"speed": 8.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -227,7 +227,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_up",
-"speed": 8.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -303,6 +303,7 @@ size = Vector2(12, 4)
 
 [node name="Hero" type="CharacterBody2D" unique_id=92466931]
 z_index = 1
+y_sort_enabled = true
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_7utag")
@@ -310,7 +311,7 @@ script = ExtResource("1_7utag")
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=837288254]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_26pet")
-animation = &"walk_down"
+animation = &"attack_up"
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="." unique_id=1542811734]
 position = Vector2(0, -2)

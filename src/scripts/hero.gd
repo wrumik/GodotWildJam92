@@ -11,10 +11,9 @@ extends CharacterBody2D
 const SPEED: float = 80.0
 
 var direction: Vector2 = Input.get_vector("left","right","up","down")
-var last_direction: Vector2 = Vector2.ZERO
+var last_direction: Vector2 = Vector2(1, 0)
 var is_attacking: bool = false
 var target_position: Vector2
-var colliding_body: Node2D
 
 
 func _ready() -> void:
@@ -62,12 +61,20 @@ func update_animation():
 	else: #player attack checks
 		if sign(last_direction.y) == -1:
 			player_sprite.play("attack_up")
+			if up_cast.get_collider() is BreakableBody:
+				up_cast.get_collider().destroy()
 		elif sign(last_direction.y) == 1:
 			player_sprite.play("attack_down")
+			if down_cast.get_collider() is BreakableBody:
+				down_cast.get_collider().destroy()
 		elif sign(last_direction.x) == 1:
 			player_sprite.play("attack_right")
+			if right_cast.get_collider() is BreakableBody:
+				right_cast.get_collider().destroy()
 		elif sign(last_direction.x) == -1:
 			player_sprite.play("attack_left")
+			if left_cast.get_collider() is BreakableBody:
+				left_cast.get_collider().destroy()
 		await player_sprite.animation_finished
 		is_attacking = false
 		update_animation()
