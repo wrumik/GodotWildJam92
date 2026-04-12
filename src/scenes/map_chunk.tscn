@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bok1gk4b7wu1y"]
+
+[ext_resource type="Script" uid="uid://bkp1cinke4dyj" path="res://src/scripts/map_chunk.gd" id="1_5gylb"]
+
+[node name="MapChunk" type="TileMapLayer" unique_id=537973546]
+script = ExtResource("1_5gylb")

@@ -1,16 +1,22 @@
 [gd_scene format=3 uid="uid://cr40qlmynhiqj"]
 
 [ext_resource type="PackedScene" uid="uid://bpi7iy00k470i" path="res://src/scenes/hero.tscn" id="1_kkvs4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fxj6"]
+[ext_resource type="PackedScene" uid="uid://bkqso6l7xvoln" path="res://src/scenes/map_chunks/temple_chunk.tscn" id="2_rr2wm"]
+[ext_resource type="PackedScene" uid="uid://vo1pmuqhsnqy" path="res://src/scenes/map_chunks/test_chunk.tscn" id="3_32aa5"]
 
 [node name="Main" type="Node2D" unique_id=142894164]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=773912091]
-position = Vector2(266, 90)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=864032770]
-shape = SubResource("RectangleShape2D_1fxj6")
-
 [node name="Hero" parent="." unique_id=92466931 instance=ExtResource("1_kkvs4")]
-position = Vector2(64, 96)
+z_index = 1
+position = Vector2(144, 87)
+
+[node name="Camera2D" type="Camera2D" parent="Hero" unique_id=1175175545]
+limit_left = -181
+limit_top = 0
+limit_right = 288
+limit_bottom = 160
+
+[node name="TempleChunk" parent="." unique_id=1558190129 instance=ExtResource("2_rr2wm")]
+exits_dict = Dictionary[String, PackedScene]({
+"left": ExtResource("3_32aa5")
+})

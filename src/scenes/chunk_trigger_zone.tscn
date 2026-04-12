@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bt4unxpko3yro"]
+
+[ext_resource type="Script" uid="uid://jwjlcaj24hsj" path="res://src/scripts/chunk_switch_trigger.gd" id="1_2daio"]
+
+[node name="ChunkTriggerZone" type="Area2D" unique_id=1306577427]
+script = ExtResource("1_2daio")

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dh5j1i4pofm18"]
+
+[ext_resource type="Shader" uid="uid://bukwrok3oxu7x" path="res://src/shaders/CRT.gdshader" id="1_4pupu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ake4q"]
+shader = ExtResource("1_4pupu")
+shader_parameter/scanline_color = Color(0, 0, 0, 1)
+shader_parameter/flicker_color = Color(0, 0, 0, 1)
+shader_parameter/scanlines_count = 1.0
+shader_parameter/scanlines_intensity = 0.05
+shader_parameter/flicker_speed = 0.02
+shader_parameter/flicker_intensity = 0.025
+shader_parameter/color_offset = 2.0
+shader_parameter/blur = 0.0
+
+[node name="PlayerUI" type="Control" unique_id=189442730]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=316342463]
+material = SubResource("ShaderMaterial_ake4q")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
