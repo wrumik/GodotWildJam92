@@ -11,7 +11,7 @@ var neighboring_chunks: Array[MapChunk]
 func _ready() -> void:
 	# size is used for knowing where to place the next map chunk
 	size_rect = get_used_rect()
-	size = size_rect.size
+	size = size_rect.size * tile_set.tile_size
 
 
 func load_chunk(chunk_key: String, chunk_direction: ChunkDirectionsEnum.chunk_directions):
@@ -28,6 +28,7 @@ func load_chunk(chunk_key: String, chunk_direction: ChunkDirectionsEnum.chunk_di
 	match chunk_direction:
 		ChunkDirectionsEnum.chunk_directions.LEFT:
 			chunk_instance.global_position = global_position - Vector2(chunk_instance.size.x, 0)
+			print(global_position - Vector2(chunk_instance.size.x, 0))
 		ChunkDirectionsEnum.chunk_directions.RIGHT:
 			chunk_instance.global_position = global_position + Vector2(size.x, 0)
 		ChunkDirectionsEnum.chunk_directions.UP:
