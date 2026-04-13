@@ -23,30 +23,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionCheck:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionCheck:target_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 8)]
-}
 
 [sub_resource type="Animation" id="Animation_6gdmi"]
 resource_name = "swing_down"
@@ -133,30 +109,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionCheck:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionCheck:target_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 8)]
-}
 
 [sub_resource type="Animation" id="Animation_oc5sv"]
 resource_name = "walk_left"
@@ -174,30 +126,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 6, 7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionCheck:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-5, -2)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionCheck:target_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-8, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_a8rxs"]
@@ -217,30 +145,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [8, 9, 10, 11]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionCheck:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(5, -2)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionCheck:target_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(8, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_ubabj"]
 resource_name = "walk_up"
@@ -258,30 +162,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [12, 13, 14, 15]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionCheck:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -4)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionCheck:target_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -8)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5o8ya"]
@@ -330,7 +210,25 @@ shape = SubResource("RectangleShape2D_oyxmx")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=975414972]
 libraries/ = SubResource("AnimationLibrary_5o8ya")
 
-[node name="CollisionCheck" type="RayCast2D" parent="." unique_id=1352981450]
+[node name="DownCollisionCheck" type="RayCast2D" parent="." unique_id=1352981450]
 z_index = 1
 target_position = Vector2(0, 8)
+hit_from_inside = true
+
+[node name="LeftCollisionCheck" type="RayCast2D" parent="." unique_id=2117827072]
+z_index = 1
+position = Vector2(-5, -2)
+target_position = Vector2(-8, 0)
+hit_from_inside = true
+
+[node name="RightCollisionCheck" type="RayCast2D" parent="." unique_id=523889272]
+z_index = 1
+position = Vector2(5, -2)
+target_position = Vector2(8, 0)
+hit_from_inside = true
+
+[node name="UpCollisionCheck" type="RayCast2D" parent="." unique_id=666123740]
+z_index = 1
+position = Vector2(0, -4)
+target_position = Vector2(0, -8)
 hit_from_inside = true

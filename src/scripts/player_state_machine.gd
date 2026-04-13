@@ -3,7 +3,10 @@ extends CharacterBody2D
 
 @onready var states: Node = $States
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var collision_check: RayCast2D = $CollisionCheck
+@onready var down_collision_check: RayCast2D = $DownCollisionCheck
+@onready var left_collision_check: RayCast2D = $LeftCollisionCheck
+@onready var right_collision_check: RayCast2D = $RightCollisionCheck
+@onready var up_collision_check: RayCast2D = $UpCollisionCheck
 
 @export var initial_state: State
 
@@ -46,10 +49,14 @@ func change_state(old_state: State, new_state_name: String):
 
 
 func _process(delta: float) -> void:
+	current_state.update(delta)
+
+
+func _physics_process(delta: float) -> void:
 	if direction:
 		last_direction = direction
 	
-	current_state.update(delta)
+	current_state.physics_update(delta)
 	
 	global_position = global_position.move_toward(target_position, SPEED * delta)
 
