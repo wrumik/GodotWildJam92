@@ -23,13 +23,12 @@ atlas = SubResource("CompressedTexture2D_qlnlq")
 region = Rect2(20, 5, 9, 7)
 
 [node name="Bush" type="StaticBody2D" unique_id=399365041]
-z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_vy6u3")
 
 [node name="BushSprite" type="Sprite2D" parent="." unique_id=147718641]
-position = Vector2(0, -8)
 texture = ExtResource("2_ifwwr")
+offset = Vector2(0, -8)
 
 [node name="BushCollider" type="CollisionShape2D" parent="." unique_id=1440226013]
 position = Vector2(0, -8)
