@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bpi7iy00k470i" path="res://src/scenes/hero.tscn" id="1_kkvs4"]
 [ext_resource type="Texture2D" uid="uid://b01y7g7jw6kqq" path="res://src/sprites/temple_tileset.png" id="2_o81g6"]
 [ext_resource type="PackedScene" uid="uid://bycdvqviiutbb" path="res://src/scenes/bush.tscn" id="2_rr2wm"]
+[ext_resource type="Script" uid="uid://7utyh8crv6yk" path="res://src/scripts/rooms.gd" id="5_dbro3"]
+[ext_resource type="PackedScene" uid="uid://dh4b30n6lfsqb" path="res://src/scenes/room_rect.tscn" id="6_2lg1k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbro3"]
 texture = ExtResource("1_5dlwx")
@@ -1388,6 +1390,12 @@ terrain_set_0/terrain_0/color = Color(0.6836519, 0.093769126, 0.3809166, 1)
 sources/0 = SubResource("TileSetAtlasSource_24j03")
 sources/1 = SubResource("TileSetAtlasSource_p1ia5")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbro3"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lg1k"]
+resource_local_to_scene = true
+
 [node name="Main" type="Node2D" unique_id=1339752343]
 y_sort_enabled = true
 
@@ -1409,6 +1417,36 @@ tile_set = SubResource("TileSet_kbdt0")
 [node name="Hero" parent="." unique_id=92466931 instance=ExtResource("1_kkvs4")]
 
 [node name="Camera2D" type="Camera2D" parent="Hero" unique_id=945295386]
+unique_name_in_owner = true
 
 [node name="Bush" parent="." unique_id=399365041 instance=ExtResource("2_rr2wm")]
 position = Vector2(168, 224)
+
+[node name="Rooms" type="Node2D" parent="." unique_id=1246828311]
+z_index = 1
+script = ExtResource("5_dbro3")
+
+[node name="Temple" parent="Rooms" unique_id=857525345 instance=ExtResource("6_2lg1k")]
+
+[node name="Corner1" parent="Rooms/Temple" index="0" unique_id=761166111]
+position = Vector2(-48, -48)
+
+[node name="Corner2" parent="Rooms/Temple" index="1" unique_id=1252245146]
+position = Vector2(336, 200)
+
+[node name="RoomShape" parent="Rooms/Temple/Area2D" parent_id_path=PackedInt32Array(857525345, 1455719450) index="0" unique_id=408389936]
+shape = SubResource("RectangleShape2D_dbro3")
+
+[node name="Outside" parent="Rooms" unique_id=159630187 instance=ExtResource("6_2lg1k")]
+
+[node name="Corner1" parent="Rooms/Outside" index="0" unique_id=761166111]
+position = Vector2(-256, 200)
+
+[node name="Corner2" parent="Rooms/Outside" index="1" unique_id=1252245146]
+position = Vector2(744, 608)
+
+[node name="RoomShape" parent="Rooms/Outside/Area2D" parent_id_path=PackedInt32Array(159630187, 1455719450) index="0" unique_id=408389936]
+shape = SubResource("RectangleShape2D_2lg1k")
+
+[editable path="Rooms/Temple"]
+[editable path="Rooms/Outside"]

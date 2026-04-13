@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dh4b30n6lfsqb"]
+
+[ext_resource type="Script" uid="uid://glgharqn7to2" path="res://src/scripts/room_rect.gd" id="1_8kerh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kerh"]
+resource_local_to_scene = true
+
+[node name="RoomRect" type="Node2D" unique_id=159630187]
+script = ExtResource("1_8kerh")
+
+[node name="Corner1" type="Marker2D" parent="." unique_id=761166111]
+unique_name_in_owner = true
+
+[node name="Corner2" type="Marker2D" parent="." unique_id=1252245146]
+unique_name_in_owner = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1455719450]
+visible = false
+
+[node name="RoomShape" type="CollisionShape2D" parent="Area2D" unique_id=408389936]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_8kerh")
+debug_color = Color(0.70263106, 2.2717715e-05, 0.32677492, 0.21568628)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
