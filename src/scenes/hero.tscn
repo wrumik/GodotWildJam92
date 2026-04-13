@@ -309,25 +309,25 @@ platform_on_leave = 2
 script = ExtResource("1_7utag")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=837288254]
-position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_26pet")
 animation = &"attack_up"
+offset = Vector2(0, -8)
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="." unique_id=1542811734]
-position = Vector2(0, -2)
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_oyxmx")
 
 [node name="DownCast" type="RayCast2D" parent="." unique_id=447779101]
-target_position = Vector2(0, 8)
+target_position = Vector2(0, 8.2)
 
 [node name="LeftCast" type="RayCast2D" parent="." unique_id=1736169212]
 position = Vector2(-6, -2)
-target_position = Vector2(-8, 0)
+target_position = Vector2(-8.2, 0)
 
 [node name="RightCast" type="RayCast2D" parent="." unique_id=1061119401]
 position = Vector2(6, -2)
-target_position = Vector2(8, 0)
+target_position = Vector2(8.2, 0)
 
 [node name="UpCast" type="RayCast2D" parent="." unique_id=1604041689]
-position = Vector2(0, -4)
-target_position = Vector2(0, -8)
+position = Vector2(0, -5)
+target_position = Vector2(0, -8.2)
