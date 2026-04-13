@@ -1418,8 +1418,6 @@ tile_set = SubResource("TileSet_kbdt0")
 
 [node name="Camera2D" type="Camera2D" parent="Hero" unique_id=945295386]
 unique_name_in_owner = true
-limit_smoothed = true
-position_smoothing_enabled = true
 
 [node name="Bush" parent="." unique_id=399365041 instance=ExtResource("2_rr2wm")]
 position = Vector2(168, 224)
