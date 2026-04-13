@@ -1,6 +1,9 @@
 class_name PlayerStateMachine
 extends CharacterBody2D
 
+# TEMPORARY CONSTANT
+#const starting_item: ItemResource = preload("res://src/resources/sword_item.tres")
+
 @onready var states: Node = $States
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var down_collision_check: RayCast2D = $DownCollisionCheck
@@ -19,10 +22,14 @@ var target_position: Vector2
 var direction: Vector2 = Vector2.ZERO
 var last_direction: Vector2 = Vector2.DOWN
 
-var held_item: ItemResource = null
+var item_instance: Item = null
 
 
+# state machine related functions
 func _ready() -> void:
+	#temporary call
+	#grab_item(starting_item)
+	
 	target_position = global_position
 	
 	current_state = initial_state
@@ -63,3 +70,13 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(_event: InputEvent) -> void:
 	direction = Input.get_vector("left","right","up","down")
+
+
+#item related functions
+func grab_item(item: ItemResource):
+	if item_instance:
+		item_instance.queue_free()
+	
+	item_instance = item.item_scene.instantiate()
+	add_child(item_instance)
+	item_instance.holder = self
