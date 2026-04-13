@@ -35,6 +35,7 @@ folder_colors={
 "res://src/": "green",
 "res://src/autoloads/": "orange",
 "res://src/enums/": "orange",
+"res://src/scripts/states/": "teal",
 "res://src/shaders/": "orange"
 }
 
