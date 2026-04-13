@@ -2,7 +2,7 @@ extends State
 
 
 func enter() -> void:
-	if parent.held_item == null:
+	if parent.held_weapon == null:
 		switch_states("idle")
 		return
 	

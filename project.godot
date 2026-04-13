@@ -34,7 +34,11 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 folder_colors={
 "res://src/": "green",
 "res://src/autoloads/": "orange",
-"res://src/enums/": "orange",
+"res://src/scenes/items/": "teal",
+"res://src/scenes/map_chunks/": "teal",
+"res://src/scripts/enums/": "orange",
+"res://src/scripts/items/": "teal",
+"res://src/scripts/resource_scripts/": "yellow",
 "res://src/scripts/states/": "teal",
 "res://src/shaders/": "orange"
 }

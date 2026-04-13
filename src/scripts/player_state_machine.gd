@@ -19,7 +19,7 @@ var target_position: Vector2
 var direction: Vector2 = Vector2.ZERO
 var last_direction: Vector2 = Vector2.DOWN
 
-var held_weapon: Node2D = null
+var held_item: ItemResource = null
 
 
 func _ready() -> void:
