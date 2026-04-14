@@ -273,7 +273,7 @@ vframes = 12
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="." unique_id=1542811734]
 z_index = 1
-position = Vector2(0, -2)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_oyxmx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=975414972]
@@ -281,6 +281,7 @@ libraries/ = SubResource("AnimationLibrary_5o8ya")
 
 [node name="DownCollisionCheck" type="RayCast2D" parent="." unique_id=1352981450]
 z_index = 1
+position = Vector2(0, -2)
 target_position = Vector2(0, 8)
 hit_from_inside = true
 
