@@ -2,7 +2,7 @@ extends State
 
 
 func enter() -> void:
-	if parent.held_weapon == null:
+	if parent.item_instance == null:
 		switch_states("idle")
 		return
 	
@@ -16,6 +16,8 @@ func enter() -> void:
 		animation_player.play("swing_down")
 	if last_direction.y < 0:
 		animation_player.play("swing_up")
+	
+	parent.item_instance.use()
 	
 	await animation_player.animation_finished
 	
