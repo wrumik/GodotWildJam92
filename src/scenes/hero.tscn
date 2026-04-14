@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://mrgjaixc5qlj" path="res://src/scripts/player_state_machine.gd" id="1_7utag"]
 [ext_resource type="Script" uid="uid://cq1dwvwgl41wp" path="res://src/scripts/states/player/idle.gd" id="2_qi43m"]
 [ext_resource type="Script" uid="uid://dxsrt2qxhsd4o" path="res://src/scripts/states/player/walk.gd" id="3_dwb8i"]
-[ext_resource type="Script" uid="uid://fwhifp3rfxfw" path="res://src/scripts/states/player/attack.gd" id="4_7t2mr"]
+[ext_resource type="Script" uid="uid://fwhifp3rfxfw" path="res://src/scripts/states/attack.gd" id="4_7t2mr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oyxmx"]
 size = Vector2(10, 4)
@@ -204,7 +204,7 @@ vframes = 12
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="." unique_id=1542811734]
 z_index = 1
-position = Vector2(0, -2)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_oyxmx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=975414972]
@@ -212,6 +212,7 @@ libraries/ = SubResource("AnimationLibrary_5o8ya")
 
 [node name="DownCollisionCheck" type="RayCast2D" parent="." unique_id=1352981450]
 z_index = 1
+position = Vector2(0, -2)
 target_position = Vector2(0, 8)
 hit_from_inside = true
 

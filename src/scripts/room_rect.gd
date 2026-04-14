@@ -1,9 +1,8 @@
 class_name RoomRect
 extends Node2D
 
-signal room_entered()
-signal room_exited()
-
+signal room_entered(body: PlayerStateMachine)
+signal room_exited(body: PlayerStateMachine)
 
 func _ready() -> void:
 	var bounds = global_bounds()
@@ -18,14 +17,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is not PlayerStateMachine:
 		return
 	
-	room_entered.emit()
+	room_entered.emit(body)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is not PlayerStateMachine:
 		return
 	
-	room_exited.emit()
+	room_exited.emit(body)
 
 
 func global_bounds() -> Rect2:
