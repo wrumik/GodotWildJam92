@@ -35,6 +35,7 @@ position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_qlnlq")
 
 [node name="LeavesParticles1" type="CPUParticles2D" parent="." unique_id=77261145]
+z_index = 1
 position = Vector2(0, -8)
 emitting = false
 amount = 3
@@ -54,6 +55,7 @@ angular_velocity_max = 240.0
 scale_amount_curve = SubResource("Curve_qlnlq")
 
 [node name="LeavesParticles2" type="CPUParticles2D" parent="." unique_id=1971307736]
+z_index = 1
 position = Vector2(0, -8)
 emitting = false
 amount = 3

@@ -2,7 +2,7 @@ class_name PlayerStateMachine
 extends CharacterBody2D
 
 # TEMPORARY CONSTANT
-#const starting_item: ItemResource = preload("res://src/resources/sword_item.tres")
+const starting_item: ItemResource = preload("res://src/resources/sword_item.tres")
 
 @onready var states: Node = $States
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -28,7 +28,7 @@ var item_instance: Item = null
 # state machine related functions
 func _ready() -> void:
 	#temporary call
-	#grab_item(starting_item)
+	grab_item(starting_item)
 	
 	target_position = global_position
 	
