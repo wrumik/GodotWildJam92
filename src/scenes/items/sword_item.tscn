@@ -164,7 +164,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(3, 0)]
+"values": [Vector2(3, -4)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -176,7 +176,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 15)]
+"values": [Vector2(0, 19)]
 }
 
 [sub_resource type="Animation" id="Animation_cx0no"]
@@ -253,7 +253,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-7, -4)]
+"values": [Vector2(-3, -4)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -265,7 +265,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-15, 0)]
+"values": [Vector2(-19, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ysuaf"]
@@ -342,7 +342,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(7, -4)]
+"values": [Vector2(3, -4)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -354,7 +354,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(15, 0)]
+"values": [Vector2(19, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_iplab"]
@@ -431,7 +431,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-4, -16)]
+"values": [Vector2(-4, -12)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -443,7 +443,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -15)]
+"values": [Vector2(0, -19)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j6f0q"]
@@ -476,4 +476,3 @@ libraries/ = SubResource("AnimationLibrary_j6f0q")
 [node name="AttackCast" type="RayCast2D" parent="." unique_id=1329694396]
 position = Vector2(-7, -5)
 target_position = Vector2(-16, 0)
-hit_from_inside = true
