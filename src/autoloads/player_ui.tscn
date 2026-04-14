@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dh5j1i4pofm18"]
 
 [ext_resource type="Shader" uid="uid://bukwrok3oxu7x" path="res://src/shaders/CRT.gdshader" id="1_4pupu"]
+[ext_resource type="Script" uid="uid://cmmni0rqkkam" path="res://src/autoloads/player_ui.gd" id="1_b3mhi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ake4q"]
 shader = ExtResource("1_4pupu")
@@ -13,8 +14,10 @@ shader_parameter/flicker_intensity = 0.025
 shader_parameter/color_offset = 2.0
 shader_parameter/blur = 0.0
 
-[node name="PlayerUI" type="Control" unique_id=189442730]
-z_index = 10
+[node name="PlayerUI" type="CanvasLayer" unique_id=1424223286]
+script = ExtResource("1_b3mhi")
+
+[node name="Control" type="Control" parent="." unique_id=1285337228]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,9 +25,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1972699487]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -14.0
+offset_right = 72.0
+grow_vertical = 0
+
+[node name="AttackInstruction" type="MarginContainer" parent="Control/VBoxContainer" unique_id=3394336]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/AttackInstruction" unique_id=1844679453]
+layout_mode = 2
+text = "Attack: J"
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=316342463]
 material = SubResource("ShaderMaterial_ake4q")
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

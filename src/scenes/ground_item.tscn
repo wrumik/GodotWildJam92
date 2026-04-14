@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bryvahlct4puu"]
+
+[ext_resource type="Script" uid="uid://ch6v34df1731m" path="res://src/scripts/ground_item.gd" id="1_6fd26"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6fd26"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_ufcej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bo1y4"]
+resource_name = "idle"
+length = 1.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.2),
+"transitions": PackedFloat32Array(0.55478597, 1.5691689, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_geivb"]
+_data = {
+&"RESET": SubResource("Animation_ufcej"),
+&"idle": SubResource("Animation_bo1y4")
+}
+
+[node name="GroundItem" type="Area2D" unique_id=1938182670]
+script = ExtResource("1_6fd26")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=83207746]
+shape = SubResource("CircleShape2D_6fd26")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=978765593]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=555368912]
+libraries/ = SubResource("AnimationLibrary_geivb")
+autoplay = &"idle"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -2,8 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://b2jgbfgwexqha" path="res://src/scenes/items/sword_item.tscn" id="1_40wry"]
 [ext_resource type="Script" uid="uid://dw2enkkjxqimy" path="res://src/scripts/resource_scripts/Item.gd" id="1_x5iuh"]
+[ext_resource type="Texture2D" uid="uid://c1pm0a2xy3kdy" path="res://src/sprites/effects.png" id="1_xqqho"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4knb6"]
+atlas = ExtResource("1_xqqho")
+region = Rect2(16, 114, 14, 14)
 
 [resource]
 script = ExtResource("1_x5iuh")
 item_scene = ExtResource("1_40wry")
+icon = SubResource("AtlasTexture_4knb6")
 metadata/_custom_type_script = "uid://dw2enkkjxqimy"

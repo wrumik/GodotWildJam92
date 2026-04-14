@@ -1,9 +1,6 @@
 class_name PlayerStateMachine
 extends CharacterBody2D
 
-# TEMPORARY CONSTANT
-const starting_item: ItemResource = preload("res://src/resources/sword_item.tres")
-
 @onready var states: Node = $States
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var down_collision_check: RayCast2D = $DownCollisionCheck
@@ -27,8 +24,6 @@ var item_instance: Item = null
 
 # state machine related functions
 func _ready() -> void:
-	#temporary call
-	grab_item(starting_item)
 	
 	target_position = global_position
 	
@@ -80,3 +75,5 @@ func grab_item(item: ItemResource):
 	item_instance = item.item_scene.instantiate()
 	add_child(item_instance)
 	item_instance.holder = self
+	
+	PlayerUI.set_can_attack(item.item_type == ItemResource.item_types.WEAPON)
