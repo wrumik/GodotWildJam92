@@ -16,11 +16,13 @@ func damage(amount: int) -> void:
 	
 	current_health = max(0, current_health - amount)
 	damage_taken.emit(amount)
-	if current_health <= 0:
-		current_health = 0
+	if current_health == 0:
 		destroyed.emit()
 		
 	
 func heal(amount: int) -> void:
 	if amount < 0:
 		damage(-amount)
+	
+	current_health = min(max_health, current_health + amount)
+	damage_healed.emit(amount)
