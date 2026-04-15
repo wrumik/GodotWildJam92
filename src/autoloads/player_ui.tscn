@@ -1,18 +1,31 @@
 [gd_scene format=3 uid="uid://dh5j1i4pofm18"]
 
-[ext_resource type="Shader" uid="uid://bukwrok3oxu7x" path="res://src/shaders/CRT.gdshader" id="1_4pupu"]
-[ext_resource type="Script" uid="uid://cmmni0rqkkam" path="res://src/autoloads/player_ui.gd" id="1_b3mhi"]
+[ext_resource type="Script" path="res://src/autoloads/player_ui.gd" id="1_b3mhi"]
+[ext_resource type="Shader" uid="uid://u51dg1fsjrcm" path="res://src/shaders/HeavyCRT.gdshader" id="2_b3mhi"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ake4q"]
-shader = ExtResource("1_4pupu")
-shader_parameter/scanline_color = Color(0, 0, 0, 1)
-shader_parameter/flicker_color = Color(0, 0, 0, 1)
-shader_parameter/scanlines_count = 1.0
-shader_parameter/scanlines_intensity = 0.05
-shader_parameter/flicker_speed = 0.02
-shader_parameter/flicker_intensity = 0.025
-shader_parameter/color_offset = 2.0
-shader_parameter/blur = 0.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7bq4i"]
+shader = ExtResource("2_b3mhi")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.3
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=1424223286]
 script = ExtResource("1_b3mhi")
@@ -47,7 +60,7 @@ layout_mode = 2
 text = "Attack: J"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=316342463]
-material = SubResource("ShaderMaterial_ake4q")
+material = SubResource("ShaderMaterial_7bq4i")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
