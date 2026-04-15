@@ -356,15 +356,19 @@ libraries/ = SubResource("AnimationLibrary_j6f0q")
 [node name="AttackDownCast" type="RayCast2D" parent="." unique_id=1329694396]
 position = Vector2(3, -6)
 target_position = Vector2(0, 20)
+collide_with_areas = true
 
 [node name="AttackUpCast" type="RayCast2D" parent="." unique_id=371125711]
 position = Vector2(-4, -8)
 target_position = Vector2(0, -23)
+collide_with_areas = true
 
 [node name="AttackLeftCast" type="RayCast2D" parent="." unique_id=956694698]
 position = Vector2(-1, -4)
 target_position = Vector2(-21, 0)
+collide_with_areas = true
 
 [node name="AttackRightCast" type="RayCast2D" parent="." unique_id=1471999851]
 position = Vector2(1, -4)
 target_position = Vector2(21, 0)
+collide_with_areas = true

@@ -9,19 +9,22 @@ extends Item
 
 
 func use():
+	var collider = null
 	if holder.last_direction.x > 0:
 		animation_player.play("swing_right")
-		if attack_right_cast.get_collider() is BreakableBody:
-			attack_right_cast.get_collider().destroy()
+		collider = attack_right_cast.get_collider()
 	if holder.last_direction.x < 0:
 		animation_player.play("swing_left")
-		if attack_left_cast.get_collider() is BreakableBody:
-			attack_left_cast.get_collider().destroy()
+		collider = attack_left_cast.get_collider()
 	if holder.last_direction.y > 0:
 		animation_player.play("swing_down")
-		if attack_down_cast.get_collider() is BreakableBody:
-			attack_down_cast.get_collider().destroy()
+		collider = attack_down_cast.get_collider()
 	if holder.last_direction.y < 0:
 		animation_player.play("swing_up")
-		if attack_up_cast.get_collider() is BreakableBody:
-			attack_up_cast.get_collider().destroy()
+		collider = attack_up_cast.get_collider()
+
+	if collider:
+		if collider is BreakableBody:
+			collider.destroy()
+		elif collider is HurtBox:
+			collider.damage(1)

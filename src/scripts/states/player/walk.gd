@@ -21,6 +21,8 @@ func physics_update(_delta: float) -> void:
 		animation_player.play("walk_up")
 		if !parent.up_collision_check.is_colliding():
 			parent.target_position.y -= 8
+	
+	animation_player.speed_scale = remap(parent.speed, parent.base_speed, parent.speed + 1, 1.0, 1.3)
 
 func update(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
@@ -28,3 +30,7 @@ func update(_delta: float) -> void:
 	
 	if parent.direction == Vector2.ZERO:
 		switch_state.emit(self, "idle")
+		
+
+func exit() -> void:
+	animation_player.speed_scale = 1.0

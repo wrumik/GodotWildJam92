@@ -3,14 +3,15 @@ extends CharacterBody2D
 
 @onready var states: Node = $States
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var down_collision_check: RayCast2D = $DownCollisionCheck
+@onready var down_collision_check: ShapeCast2D = $DownCollisionCheck
 @onready var left_collision_check: RayCast2D = $LeftCollisionCheck
 @onready var right_collision_check: RayCast2D = $RightCollisionCheck
-@onready var up_collision_check: RayCast2D = $UpCollisionCheck
+@onready var up_collision_check: ShapeCast2D = $UpCollisionCheck
 
 @export var initial_state: State
 
-var speed: float = 90.0
+@export var base_speed: float = 90.0
+@onready var speed: float = base_speed
 
 var states_dict: Dictionary[String, State]
 var current_state: State
