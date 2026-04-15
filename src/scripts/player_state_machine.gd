@@ -70,6 +70,13 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 #item related functions
 func grab_item(item: ItemResource):
+	if item.item_type == ItemResource.item_types.UPGRADE:
+		var temp_item: Item = item.item_scene.instantiate()
+		add_child(temp_item)
+		temp_item.holder = self
+		temp_item.picked_up()
+		return
+	
 	if item_instance:
 		item_instance.queue_free()
 	
