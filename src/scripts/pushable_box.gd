@@ -35,6 +35,7 @@ func destroy(attack_direction: Vector2):
 
 
 func destroy_box():
+	SoundManager.play_sfx(Sounds.BOX_BROKEN)
 	box_sprite.visible = false
 	box_collider.disabled = true
 	box_break_particles.emitting = true

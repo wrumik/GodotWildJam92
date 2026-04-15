@@ -1,15 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq3koyw3pjovp"]
+[gd_scene format=3 uid="uid://cq3koyw3pjovp"]
 
-[ext_resource type="Script" uid="uid://bluan7doitiq4" path="res://Util/Autoload/sound_manager.gd" id="1_l502s"]
+[ext_resource type="Script" uid="uid://bluan7doitiq4" path="res://src/util/sound_manager/autoload/sound_manager.gd" id="1_l502s"]
 
-[node name="sound_manager" type="Node"]
+[node name="sound_manager" type="Node" unique_id=576927923]
 process_mode = 3
 script = ExtResource("1_l502s")
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-bus = &"Music"
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1815396952]
 
-[node name="AmbientPlayer" type="AudioStreamPlayer" parent="."]
-bus = &"SFX"
+[node name="AmbientPlayer" type="AudioStreamPlayer" parent="." unique_id=991596880]
 
-[node name="SFXPool" type="Node" parent="."]
+[node name="SFXPool" type="Node" parent="." unique_id=901498042]

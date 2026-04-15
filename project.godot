@@ -46,7 +46,8 @@ folder_colors={
 "res://src/scripts/items/": "teal",
 "res://src/scripts/resource_scripts/": "yellow",
 "res://src/scripts/states/": "teal",
-"res://src/shaders/": "orange"
+"res://src/shaders/": "orange",
+"res://src/sound/": "blue"
 }
 
 [gui]

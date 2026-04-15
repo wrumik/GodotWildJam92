@@ -79,6 +79,9 @@ position = Vector2(-40, 192)
 [node name="Bush5" parent="MapObjects" unique_id=1920315448 instance=ExtResource("2_rr2wm")]
 position = Vector2(-56, 256)
 
+[node name="PushableBox" parent="MapObjects" unique_id=159191363 instance=ExtResource("9_kokaf")]
+position = Vector2(120, 127)
+
 [node name="Rooms" type="Node2D" parent="." unique_id=1246828311]
 z_index = 1
 script = ExtResource("5_dbro3")
@@ -123,9 +126,6 @@ position = Vector2(464, 720)
 
 [node name="RoomShape" parent="Rooms/Dungeon/Area2D" parent_id_path=PackedInt32Array(913753963, 1455719450) index="0" unique_id=408389936]
 shape = SubResource("RectangleShape2D_p1ia5")
-
-[node name="PushableBox" parent="." unique_id=159191363 instance=ExtResource("9_kokaf")]
-position = Vector2(120, 143)
 
 [editable path="Rooms/Temple"]
 [editable path="Rooms/Temple2"]

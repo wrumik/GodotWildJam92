@@ -28,6 +28,7 @@ func use():
 		animation_player.play("swing_up")
 		attack_direction = Vector2.UP
 		collider = attack_up_cast.get_collider()
+	SoundManager.play_sfx(Sounds.SWORD_SWOOSH)
 
 	if collider:
 		if collider is BreakableBody:

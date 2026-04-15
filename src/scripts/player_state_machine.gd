@@ -64,6 +64,10 @@ func _physics_process(delta: float) -> void:
 	global_position = global_position.move_toward(target_position, speed * delta)
 
 
+func play_step_sound():
+	SoundManager.play_sfx(Sounds.FOOTSTEP)
+
+
 func _unhandled_input(_event: InputEvent) -> void:
 	direction = Input.get_vector("left","right","up","down")
 
