@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 @export var initial_state: State
 
-const SPEED: float = 90.0
+var speed: float = 90.0
 
 var states_dict: Dictionary[String, State]
 var current_state: State
@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 	
 	current_state.physics_update(delta)
 	
-	global_position = global_position.move_toward(target_position, SPEED * delta)
+	global_position = global_position.move_toward(target_position, speed * delta)
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -75,5 +75,6 @@ func grab_item(item: ItemResource):
 	item_instance = item.item_scene.instantiate()
 	add_child(item_instance)
 	item_instance.holder = self
+	item_instance.picked_up()
 	
 	PlayerUI.set_can_attack(item.item_type == ItemResource.item_types.WEAPON)

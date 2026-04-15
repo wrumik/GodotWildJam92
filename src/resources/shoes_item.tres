@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://byeli4ccyvyv7"]
+
+[ext_resource type="Script" uid="uid://dw2enkkjxqimy" path="res://src/scripts/resource_scripts/Item.gd" id="1_0epc3"]
+[ext_resource type="Texture2D" uid="uid://dpejel64xtbwi" path="res://src/sprites/items/shoes.png" id="1_gdb1l"]
+[ext_resource type="PackedScene" uid="uid://bn12qneqxl2x7" path="res://src/scenes/items/shoes_item.tscn" id="2_3sl1l"]
+
+[resource]
+script = ExtResource("1_0epc3")
+item_scene = ExtResource("2_3sl1l")
+icon = ExtResource("1_gdb1l")
+metadata/_custom_type_script = "uid://dw2enkkjxqimy"

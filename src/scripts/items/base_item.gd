@@ -6,3 +6,7 @@ extends Node2D
 
 func use():
 	pass
+
+
+func picked_up():
+	pass
