@@ -6,12 +6,15 @@ extends Node2D
 var first_time: bool = true
 var tween: Tween = null
 
+
 func _ready() -> void:
 	%Camera2D.position_smoothing_enabled = false
 	
 	for c in get_children():
 		if c is RoomRect:
 			c.room_entered.connect(_on_room_entered.bind(c))
+			c.navigation_grid = %NavigationLayer.create_grid_for_room(c)
+			c.setup()
 			
 			
 func _on_room_entered(_player: PlayerStateMachine, rect: RoomRect) -> void:
