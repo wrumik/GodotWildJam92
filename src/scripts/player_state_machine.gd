@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 
 
 func play_step_sound():
-	SoundManager.play_sfx(Sounds.FOOTSTEP)
+	SoundManager.play_sfx(Sounds.FOOTSTEP, 1.0, randf_range(0.95, 1.0))
 
 
 func _unhandled_input(_event: InputEvent) -> void:
