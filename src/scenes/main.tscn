@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://bed4r18biqbpx" path="res://src/resources/tile_set.tres" id="1_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://bpi7iy00k470i" path="res://src/scenes/hero.tscn" id="1_kkvs4"]
-[ext_resource type="PackedScene" uid="uid://bryvahlct4puu" path="res://src/scenes/ground_item.tscn" id="2_2lg1k"]
+[ext_resource type="PackedScene" path="res://src/scenes/ground_item.tscn" id="2_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://bycdvqviiutbb" path="res://src/scenes/bush.tscn" id="2_rr2wm"]
 [ext_resource type="Resource" uid="uid://drmndob5m7fta" path="res://src/resources/sword_item.tres" id="3_5lsyw"]
 [ext_resource type="Script" uid="uid://7utyh8crv6yk" path="res://src/scripts/rooms.gd" id="5_dbro3"]
@@ -44,7 +44,10 @@ position = Vector2(144, 80)
 unique_name_in_owner = true
 
 [node name="Bush" parent="." unique_id=399365041 instance=ExtResource("2_rr2wm")]
-position = Vector2(168, 192)
+position = Vector2(136, 192)
+
+[node name="Bush2" parent="." unique_id=1136349090 instance=ExtResource("2_rr2wm")]
+position = Vector2(152, 192)
 
 [node name="Rooms" type="Node2D" parent="." unique_id=1246828311]
 z_index = 1
