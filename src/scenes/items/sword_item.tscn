@@ -354,8 +354,8 @@ frame = 56
 libraries/ = SubResource("AnimationLibrary_j6f0q")
 
 [node name="AttackDownCast" type="RayCast2D" parent="." unique_id=1329694396]
-position = Vector2(3, -8)
-target_position = Vector2(0, 23)
+position = Vector2(3, -6)
+target_position = Vector2(0, 20)
 
 [node name="AttackUpCast" type="RayCast2D" parent="." unique_id=371125711]
 position = Vector2(-4, -8)
