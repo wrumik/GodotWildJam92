@@ -22,5 +22,8 @@ unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_8kerh")
 debug_color = Color(0.70263106, 2.2717715e-05, 0.32677492, 0.21568628)
 
+[node name="RoomObjects" type="Node2D" parent="." unique_id=1075803513]
+unique_name_in_owner = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

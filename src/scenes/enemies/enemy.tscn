@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cuvjbioye0jd4"]
+
+[ext_resource type="Script" uid="uid://dxb2xqggeyq07" path="res://src/scenes/enemies/enemy.gd" id="1_h36vd"]
+[ext_resource type="PackedScene" uid="uid://cd0orkia7pp4q" path="res://src/scenes/hurt_box.tscn" id="2_h36vd"]
+[ext_resource type="Script" uid="uid://bwllcatl1n0we" path="res://src/scripts/enemies/grid_mover.gd" id="3_36k55"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd3hd"]
+size = Vector2(14, 5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h36vd"]
+radius = 70.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=2023609171]
+motion_mode = 1
+script = ExtResource("1_h36vd")
+
+[node name="HurtBox" parent="." unique_id=334642380 instance=ExtResource("2_h36vd")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=674904886]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_fd3hd")
+
+[node name="GridMover" type="Node" parent="." unique_id=1553690740 node_paths=PackedStringArray("body")]
+script = ExtResource("3_36k55")
+body = NodePath("..")
+
+[node name="Vision" type="Area2D" parent="." unique_id=1414328691]
+collision_layer = 0
+collision_mask = 4
+
+[node name="VisionCircle" type="CollisionShape2D" parent="Vision" unique_id=1045065274]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_h36vd")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1871524328]
+unique_name_in_owner = true
+
+[connection signal="destroyed" from="HurtBox" to="." method="_on_hurt_box_destroyed"]

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://brndi6l01vp4b"]
+
+[ext_resource type="PackedScene" uid="uid://cuvjbioye0jd4" path="res://src/scenes/enemies/enemy.tscn" id="1_50pid"]
+[ext_resource type="Texture2D" uid="uid://c7y37cl67ai1l" path="res://src/sprites/cloaked_figure.png" id="2_07h57"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07h57"]
+size = Vector2(14, 6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_07h57"]
+radius = 70.0
+
+[node name="CloakedEnemy" unique_id=2023609171 instance=ExtResource("1_50pid")]
+attack_range = 10
+
+[node name="CollisionShape2D" parent="HurtBox" parent_id_path=PackedInt32Array(334642380) index="0" unique_id=1415210236]
+position = Vector2(0, -2)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=674904886]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_07h57")
+
+[node name="VisionCircle" parent="Vision" parent_id_path=PackedInt32Array(1414328691) index="0" unique_id=1045065274]
+shape = SubResource("CircleShape2D_07h57")
+
+[node name="Sprite" parent="." index="4" unique_id=1871524328]
+position = Vector2(0, -2)
+texture = ExtResource("2_07h57")
+hframes = 4
+vframes = 4
+
+[editable path="HurtBox"]
