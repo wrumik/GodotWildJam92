@@ -265,8 +265,9 @@ script = ExtResource("3_dwb8i")
 script = ExtResource("4_7t2mr")
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1335606832]
-position = Vector2(0, -9)
+position = Vector2(0, -1)
 texture = ExtResource("1_6gdmi")
+offset = Vector2(0, -8)
 hframes = 4
 vframes = 12
 
