@@ -10,7 +10,7 @@ var _player_counter = 0
 
 
 func _enter_tree():
-	AudioServer.set_bus_layout(load("res://Util/SoundManager/bus_layout.tres"))
+	AudioServer.set_bus_layout(load("res://default_bus_layout.tres"))
 	randomize()
 
 
