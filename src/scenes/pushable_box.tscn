@@ -10,16 +10,20 @@ region = Rect2(48, 112, 16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_278db"]
 size = Vector2(16, 16)
 
+[sub_resource type="Curve" id="Curve_278db"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6648936, 0.7415731), -1.6002723, -1.6002723, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="PushableBox" type="StaticBody2D" unique_id=159191363]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_x67a3")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102428861]
+[node name="BoxSprite" type="Sprite2D" parent="." unique_id=1102428861]
 texture = SubResource("AtlasTexture_gywrx")
 offset = Vector2(0, -8)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2030098726]
+[node name="BoxCollider" type="CollisionShape2D" parent="." unique_id=2030098726]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_278db")
 
@@ -37,3 +41,22 @@ target_position = Vector2(8, 0)
 [node name="CastUp" type="RayCast2D" parent="." unique_id=704926633]
 position = Vector2(0, -16)
 target_position = Vector2(0, -8)
+
+[node name="BoxBreakParticles" type="CPUParticles2D" parent="." unique_id=738933148]
+z_index = 1
+position = Vector2(0, -8)
+emitting = false
+amount = 10
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(4, 4)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 60.0
+angular_velocity_min = 150.0
+angular_velocity_max = 240.0
+scale_amount_curve = SubResource("Curve_278db")

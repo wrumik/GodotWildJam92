@@ -4,6 +4,9 @@ extends BreakableBody
 @onready var cast_left: RayCast2D = $CastLeft
 @onready var cast_right: RayCast2D = $CastRight
 @onready var cast_up: RayCast2D = $CastUp
+@onready var box_sprite: Sprite2D = $BoxSprite
+@onready var box_collider: CollisionShape2D = $BoxCollider
+@onready var box_break_particles: CPUParticles2D = $BoxBreakParticles
 
 var target_position: Vector2
 var move_speed: float = 10.0
@@ -18,17 +21,24 @@ func destroy(attack_direction: Vector2):
 	match attack_direction:
 		Vector2.RIGHT:
 			if cast_right.is_colliding():
-				queue_free()
+				destroy_box()
 		Vector2.LEFT:
 			if cast_left.is_colliding():
-				queue_free()
+				destroy_box()
 		Vector2.UP:
 			if cast_up.is_colliding():
-				queue_free()
+				destroy_box()
 		Vector2.DOWN:
 			if cast_down.is_colliding():
-				queue_free()
+				destroy_box()
 	target_position += attack_direction * cell_size
+
+
+func destroy_box():
+	box_sprite.visible = false
+	box_collider.disabled = true
+	box_break_particles.emitting = true
+	box_break_particles.finished.connect(queue_free)
 
 
 func _physics_process(delta: float) -> void:
