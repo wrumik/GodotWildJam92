@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://3ty7xnxylxbt"]
+
+[ext_resource type="Script" uid="uid://crwpte3r7tg10" path="res://src/scripts/pushable_box.gd" id="1_x67a3"]
+[ext_resource type="Texture2D" uid="uid://b01y7g7jw6kqq" path="res://src/sprites/temple_tileset.png" id="2_278db"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gywrx"]
+atlas = ExtResource("2_278db")
+region = Rect2(48, 112, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_278db"]
+size = Vector2(16, 16)
+
+[node name="PushableBox" type="StaticBody2D" unique_id=159191363]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_x67a3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102428861]
+texture = SubResource("AtlasTexture_gywrx")
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2030098726]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_278db")
+
+[node name="CastDown" type="RayCast2D" parent="." unique_id=478091179]
+target_position = Vector2(0, 8)
+
+[node name="CastLeft" type="RayCast2D" parent="." unique_id=2041041523]
+position = Vector2(-8, -8)
+target_position = Vector2(-8, 0)
+
+[node name="CastRight" type="RayCast2D" parent="." unique_id=376401302]
+position = Vector2(8, -8)
+target_position = Vector2(8, 0)
+
+[node name="CastUp" type="RayCast2D" parent="." unique_id=704926633]
+position = Vector2(0, -16)
+target_position = Vector2(0, -8)

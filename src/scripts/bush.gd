@@ -5,7 +5,7 @@ extends BreakableBody
 @onready var leaves_particles_2: CPUParticles2D = $LeavesParticles2
 @onready var bush_collider: CollisionShape2D = $BushCollider
 
-func destroy():
+func destroy(_attack_direction: Vector2):
 	bush_sprite.visible = false
 	bush_collider.disabled = true
 	leaves_particles_1.emitting = true

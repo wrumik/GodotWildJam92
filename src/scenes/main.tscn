@@ -2,15 +2,13 @@
 
 [ext_resource type="TileSet" uid="uid://bed4r18biqbpx" path="res://src/resources/tile_set.tres" id="1_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://bpi7iy00k470i" path="res://src/scenes/hero.tscn" id="1_kkvs4"]
-[ext_resource type="PackedScene" uid="uid://bryvahlct4puu" path="res://src/scenes/ground_item.tscn" id="2_2lg1k"]
+[ext_resource type="PackedScene" path="res://src/scenes/ground_item.tscn" id="2_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://bycdvqviiutbb" path="res://src/scenes/bush.tscn" id="2_rr2wm"]
 [ext_resource type="Resource" uid="uid://drmndob5m7fta" path="res://src/resources/sword_item.tres" id="3_5lsyw"]
 [ext_resource type="Resource" uid="uid://byeli4ccyvyv7" path="res://src/resources/shoes_item.tres" id="4_5lsyw"]
 [ext_resource type="Script" uid="uid://7utyh8crv6yk" path="res://src/scripts/rooms.gd" id="5_dbro3"]
 [ext_resource type="PackedScene" uid="uid://dh4b30n6lfsqb" path="res://src/scenes/room_rect.tscn" id="6_2lg1k"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lsyw"]
-resource_local_to_scene = true
+[ext_resource type="PackedScene" uid="uid://3ty7xnxylxbt" path="res://src/scenes/pushable_box.tscn" id="9_kokaf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kokaf"]
 resource_local_to_scene = true
@@ -19,6 +17,9 @@ resource_local_to_scene = true
 resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24j03"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1ia5"]
 resource_local_to_scene = true
 
 [node name="Main" type="Node2D" unique_id=1339752343]
@@ -88,7 +89,7 @@ script = ExtResource("5_dbro3")
 position = Vector2(288, 160)
 
 [node name="RoomShape" parent="Rooms/Temple/Area2D" parent_id_path=PackedInt32Array(857525345, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_5lsyw")
+shape = SubResource("RectangleShape2D_kokaf")
 
 [node name="Temple2" parent="Rooms" unique_id=159630187 instance=ExtResource("6_2lg1k")]
 
@@ -99,7 +100,7 @@ position = Vector2(288, 0)
 position = Vector2(576, 160)
 
 [node name="RoomShape" parent="Rooms/Temple2/Area2D" parent_id_path=PackedInt32Array(159630187, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_kokaf")
+shape = SubResource("RectangleShape2D_lp058")
 
 [node name="Outside" parent="Rooms" unique_id=43439420 instance=ExtResource("6_2lg1k")]
 
@@ -110,7 +111,7 @@ position = Vector2(-176, 160)
 position = Vector2(368, 544)
 
 [node name="RoomShape" parent="Rooms/Outside/Area2D" parent_id_path=PackedInt32Array(43439420, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_lp058")
+shape = SubResource("RectangleShape2D_24j03")
 
 [node name="Dungeon" parent="Rooms" unique_id=913753963 instance=ExtResource("6_2lg1k")]
 
@@ -121,7 +122,10 @@ position = Vector2(160, 544)
 position = Vector2(464, 720)
 
 [node name="RoomShape" parent="Rooms/Dungeon/Area2D" parent_id_path=PackedInt32Array(913753963, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_24j03")
+shape = SubResource("RectangleShape2D_p1ia5")
+
+[node name="PushableBox" parent="." unique_id=159191363 instance=ExtResource("9_kokaf")]
+position = Vector2(120, 143)
 
 [editable path="Rooms/Temple"]
 [editable path="Rooms/Temple2"]

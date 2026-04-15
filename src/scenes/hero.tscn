@@ -265,7 +265,6 @@ script = ExtResource("3_dwb8i")
 script = ExtResource("4_7t2mr")
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1335606832]
-position = Vector2(0, -1)
 texture = ExtResource("1_6gdmi")
 offset = Vector2(0, -8)
 hframes = 4
@@ -273,32 +272,32 @@ vframes = 12
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="." unique_id=1542811734]
 z_index = 1
-position = Vector2(0, -4)
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_oyxmx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=975414972]
 libraries/ = SubResource("AnimationLibrary_5o8ya")
 
 [node name="DownCollisionCheck" type="ShapeCast2D" parent="." unique_id=1254949951]
-position = Vector2(0, -2)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_oyxmx")
 target_position = Vector2(0, 6)
 max_results = 5
 
 [node name="LeftCollisionCheck" type="RayCast2D" parent="." unique_id=2117827072]
 z_index = 1
-position = Vector2(-5, -4)
+position = Vector2(-5, -3)
 target_position = Vector2(-8, 0)
 hit_from_inside = true
 
 [node name="RightCollisionCheck" type="RayCast2D" parent="." unique_id=523889272]
 z_index = 1
-position = Vector2(5, -4)
+position = Vector2(5, -3)
 target_position = Vector2(8, 0)
 hit_from_inside = true
 
 [node name="UpCollisionCheck" type="ShapeCast2D" parent="." unique_id=2029643748]
-position = Vector2(0, -4)
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_oyxmx")
 target_position = Vector2(0, -6)
 max_results = 5
