@@ -3,16 +3,26 @@ extends CharacterBody2D
 
 @export var attack_range: int = 15
 @export var min_target_dist: int = 30
-@export var speed: float = 65.0
 
 var target: Node2D
 var room: RoomRect
 var active: bool = false
+var points: PackedVector2Array = []
+
+
+#func _draw() -> void:
+	#if points.is_empty():
+		#return
+	#
+	#for p in points:
+		#draw_circle(to_local(p - Vector2(8, 8)), 2, Color.RED)
 
 
 func _physics_process(_delta: float) -> void:
 	if not active:
 		return
+	
+	$GridMover.pick_direction(self.global_position)
 		
 	check_target()
 	if can_attack():
@@ -20,9 +30,8 @@ func _physics_process(_delta: float) -> void:
 	
 	if can_move():
 		move()
-	else:
-		velocity = Vector2.ZERO
-		
+	
+	queue_redraw()
 
 func _on_hurt_box_destroyed() -> void:
 	queue_free()
@@ -39,17 +48,16 @@ func can_move() -> bool:
 	
 func move() -> void:
 	assert(room, "I am not in a room!")
-	velocity = Vector2.ZERO
 	if not target or not room:
 		return
 	
-	var pos = room.get_next_pos(self.global_position, target.global_position)
-	if pos == self.global_position:
-		return
-		
-	var dir = self.global_position.direction_to(pos)
-	velocity = dir * speed
-	move_and_slide()
+	points = room.get_navigation_path(self.global_position, target.global_position)
+	var dist_sq = self.global_position.distance_squared_to(target.global_position)
+	for p in points:
+		if p.distance_squared_to(target.global_position) < dist_sq:
+			$GridMover.pick_direction(p)
+			return
+	#$GridMover.pick_direction(pos)
 
 
 func check_target() -> void:

@@ -4,8 +4,24 @@ extends Node2D
 signal room_entered(body: PlayerStateMachine)
 signal room_exited(body: PlayerStateMachine)
 
-var navigation_grid: AStarGrid2D = null
+var navigation_grid: AStarGrid2D = null # :
+	#set(value):
+		#navigation_grid = value
+		#queue_redraw()
 
+## NAV DEBUG
+#func _draw() -> void:
+	#
+	#if not navigation_grid:
+		#return
+		#
+	#var color = Color(randf(), randf(), randf(), 1.0)
+	#for x in range(navigation_grid.region.position.x, navigation_grid.region.end.x):
+		#for y in range(navigation_grid.region.position.y, navigation_grid.region.end.y):
+			#if navigation_grid.is_point_solid(Vector2i(x, y)):
+				#draw_circle(Vector2(x, y) * 16 + Vector2(8, 8), 4, color, true)
+			#else:
+				#draw_circle(Vector2(x, y) * 16 + Vector2(8, 8), 5, color, false, 2)
 
 func _ready() -> void:
 	var bounds = global_bounds()
@@ -58,14 +74,12 @@ func setup() -> void:
 			c.room = self
 			
 
-func get_next_pos(from_global: Vector2, target_global: Vector2) -> Vector2:
+func get_navigation_path(from_global: Vector2, target_global: Vector2) -> PackedVector2Array:
 	var bounds = global_bounds()
 	if not bounds.has_point(from_global) or not bounds.has_point(target_global):
-		return from_global
+		return []
 	
-	var local_start = from_global / navigation_grid.cell_size
-	var local_end = target_global / navigation_grid.cell_size
+	var local_start = round((from_global - Vector2(8, 8)) / navigation_grid.cell_size)
+	var local_end = round((target_global - Vector2(8, 8)) / navigation_grid.cell_size)
 	var points = navigation_grid.get_point_path(local_start, local_end, true)
-	if points.size() >= 2:
-		return points[1]
-	return from_global
+	return points
