@@ -17,6 +17,8 @@ func _ready() -> void:
 	target_position = global_position
 
 
+# pushing logic is under destory() because it didn't make sense to make a separate class for this
+# should've made a SwordInteraction class instead of BreakableObject 
 func destroy(attack_direction: Vector2):
 	match attack_direction:
 		Vector2.RIGHT:
