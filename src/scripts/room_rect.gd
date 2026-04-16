@@ -39,7 +39,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	room_entered.emit(body)
 	
 	for c in %RoomObjects.get_children():
-		c.active = true
+		if c is EnemyHolder:
+			c.spawn(self)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
@@ -49,7 +50,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	room_exited.emit(body)
 	
 	for c in %RoomObjects.get_children():
-		c.active = false
+		if c is EnemyHolder:
+			c.reset()
 
 
 func global_bounds() -> Rect2:
@@ -69,9 +71,10 @@ func _to_string() -> String:
 
 
 func setup() -> void:
-	for c in %RoomObjects.get_children():
-		if c is Enemy:
-			c.room = self
+	#for c in %RoomObjects.get_children():
+		#if c is EnemyHolder:
+			#c.spawn(self)
+	pass
 			
 
 func get_navigation_path(from_global: Vector2, target_global: Vector2) -> PackedVector2Array:

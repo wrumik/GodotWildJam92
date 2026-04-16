@@ -366,7 +366,7 @@ target_position = Vector2(8, 0)
 hit_from_inside = true
 
 [node name="UpCollisionCheck" type="ShapeCast2D" parent="." unique_id=2029643748]
-position = Vector2(0, -3)
+position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_oyxmx")
 target_position = Vector2(0, -6)
 max_results = 5

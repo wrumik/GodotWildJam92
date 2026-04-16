@@ -3,12 +3,12 @@ extends CharacterBody2D
 
 @export var attack_range: int = 15
 @export var min_target_dist: int = 30
+@export var animator: Animator = null
 
 var target: Node2D
 var room: RoomRect
-var active: bool = false
 var points: PackedVector2Array = []
-
+var active: bool = false
 
 #func _draw() -> void:
 	#if points.is_empty():
@@ -21,7 +21,7 @@ var points: PackedVector2Array = []
 func _physics_process(_delta: float) -> void:
 	if not active:
 		return
-	
+		
 	$GridMover.pick_direction(self.global_position)
 		
 	check_target()
@@ -32,6 +32,12 @@ func _physics_process(_delta: float) -> void:
 		move()
 	
 	queue_redraw()
+	
+	
+func _process(delta: float) -> void:
+	if animator and target:
+		animator.update($GridMover.direction, self.global_position.direction_to(target.global_position), delta)
+
 
 func _on_hurt_box_destroyed() -> void:
 	queue_free()
@@ -66,7 +72,7 @@ func check_target() -> void:
 			target = b
 			return
 	
-	target = null
+	#target = null
 
 
 func attack() -> void:

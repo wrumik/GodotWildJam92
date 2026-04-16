@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dh4b30n6lfsqb" path="res://src/scenes/room_rect.tscn" id="6_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://3ty7xnxylxbt" path="res://src/scenes/pushable_box.tscn" id="9_kokaf"]
 [ext_resource type="PackedScene" uid="uid://brndi6l01vp4b" path="res://src/scenes/enemies/cloaked_enemy.tscn" id="10_lp058"]
+[ext_resource type="PackedScene" uid="uid://bmjpjcydhm7dt" path="res://src/scenes/enemies/enemy_holder.tscn" id="11_24j03"]
 
 [sub_resource type="Gradient" id="Gradient_5lsyw"]
 offsets = PackedFloat32Array(0.41904762, 0.54285717, 0.9047619)
@@ -30,9 +31,6 @@ texture = SubResource("GradientTexture2D_kokaf")
 [sub_resource type="TileSet" id="TileSet_24j03"]
 sources/0 = SubResource("TileSetAtlasSource_lp058")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_24j03"]
-resource_local_to_scene = true
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1ia5"]
 resource_local_to_scene = true
 
@@ -43,6 +41,9 @@ resource_local_to_scene = true
 resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccybt"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50ugh"]
 resource_local_to_scene = true
 
 [node name="Main" type="Node2D" unique_id=1339752343]
@@ -122,7 +123,7 @@ script = ExtResource("5_dbro3")
 position = Vector2(288, 160)
 
 [node name="RoomShape" parent="Rooms/Temple/Area2D" parent_id_path=PackedInt32Array(857525345, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_24j03")
+shape = SubResource("RectangleShape2D_p1ia5")
 
 [node name="SecretArea" parent="Rooms" unique_id=159630187 instance=ExtResource("6_2lg1k")]
 
@@ -133,7 +134,7 @@ position = Vector2(288, 0)
 position = Vector2(576, 160)
 
 [node name="RoomShape" parent="Rooms/SecretArea/Area2D" parent_id_path=PackedInt32Array(159630187, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_p1ia5")
+shape = SubResource("RectangleShape2D_kbdt0")
 
 [node name="Outside" parent="Rooms" unique_id=43439420 instance=ExtResource("6_2lg1k")]
 
@@ -144,11 +145,11 @@ position = Vector2(-176, 160)
 position = Vector2(368, 544)
 
 [node name="RoomShape" parent="Rooms/Outside/Area2D" parent_id_path=PackedInt32Array(43439420, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_kbdt0")
+shape = SubResource("RectangleShape2D_4rjby")
 
-[node name="CloakedEnemy" parent="Rooms/Outside/RoomObjects" parent_id_path=PackedInt32Array(43439420, 1075803513) index="0" unique_id=2023609171 instance=ExtResource("10_lp058")]
-position = Vector2(80, 216)
-attack_range = 15
+[node name="EnemyHolder" parent="Rooms/Outside/RoomObjects" parent_id_path=PackedInt32Array(43439420, 1075803513) index="0" unique_id=1334183336 instance=ExtResource("11_24j03")]
+position = Vector2(32, 216)
+enemy_to_spawn = ExtResource("10_lp058")
 
 [node name="Outside2" parent="Rooms" unique_id=1783096130 instance=ExtResource("6_2lg1k")]
 
@@ -159,7 +160,7 @@ position = Vector2(-432, 544)
 position = Vector2(-48, 720)
 
 [node name="RoomShape" parent="Rooms/Outside2/Area2D" parent_id_path=PackedInt32Array(1783096130, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_4rjby")
+shape = SubResource("RectangleShape2D_ccybt")
 
 [node name="Dungeon" parent="Rooms" unique_id=913753963 instance=ExtResource("6_2lg1k")]
 
@@ -170,7 +171,7 @@ position = Vector2(160, 544)
 position = Vector2(464, 720)
 
 [node name="RoomShape" parent="Rooms/Dungeon/Area2D" parent_id_path=PackedInt32Array(913753963, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_ccybt")
+shape = SubResource("RectangleShape2D_50ugh")
 
 [editable path="Rooms/Temple"]
 [editable path="Rooms/SecretArea"]

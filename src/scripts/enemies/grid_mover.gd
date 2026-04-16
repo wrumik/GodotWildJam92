@@ -7,7 +7,7 @@ extends Node
 
 var direction: Vector2i = Vector2.ZERO
 var current_target: Vector2i = Vector2.ZERO
-var angle: float = 0.0
+
 
 func _ready() -> void:
 	assert(body)
@@ -28,20 +28,24 @@ func _physics_process(delta: float) -> void:
 	body.global_position = body.global_position.move_toward(current_target, move_speed * delta)
 
 
+static func dir_to_cardinal(dir: Vector2) -> Vector2i:
+	var angle = fposmod(dir.angle(), TAU)
+	if angle < 1 * (PI/4):
+		return Vector2i.RIGHT
+	elif angle < 3 * (PI/4):
+		return Vector2i.DOWN
+	elif angle < 5 * (PI/4):
+		return Vector2i.LEFT
+	elif angle < 7 * (PI/4):
+		return Vector2i.UP
+	else:
+		return Vector2i.RIGHT
+	
+
 func pick_direction(to: Vector2) -> void:
 	if to == body.global_position:
 		direction = Vector2i.ZERO
 		return
 	
 	var raw_dir = body.global_position.direction_to(to)
-	angle = fposmod(raw_dir.angle(), TAU)
-	if angle < 1 * (PI/4):
-		direction = Vector2i.RIGHT
-	elif angle < 3 * (PI/4):
-		direction = Vector2i.DOWN
-	elif angle < 5 * (PI/4):
-		direction = Vector2i.LEFT
-	elif angle < 7 * (PI/4):
-		direction = Vector2i.UP
-	else:
-		direction = Vector2i.RIGHT
+	direction = dir_to_cardinal(raw_dir)

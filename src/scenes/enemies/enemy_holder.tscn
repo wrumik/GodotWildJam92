@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bmjpjcydhm7dt"]
+
+[ext_resource type="Script" uid="uid://blrod12axp8fp" path="res://src/scenes/enemies/enemy_holder.gd" id="1_3mep3"]
+
+[node name="EnemyHolder" type="Marker2D" unique_id=1555743410]
+script = ExtResource("1_3mep3")
