@@ -2,8 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://bed4r18biqbpx" path="res://src/resources/tile_set.tres" id="1_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://bpi7iy00k470i" path="res://src/scenes/hero.tscn" id="1_kkvs4"]
-[ext_resource type="Script" path="res://src/scripts/navigation_layer.gd" id="1_kokaf"]
-[ext_resource type="PackedScene" path="res://src/scenes/ground_item.tscn" id="2_2lg1k"]
+[ext_resource type="Script" uid="uid://dvyh2cdhfxf3j" path="res://src/scripts/navigation_layer.gd" id="1_kokaf"]
+[ext_resource type="PackedScene" uid="uid://bryvahlct4puu" path="res://src/scenes/ground_item.tscn" id="2_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://bycdvqviiutbb" path="res://src/scenes/bush.tscn" id="2_rr2wm"]
 [ext_resource type="Resource" uid="uid://drmndob5m7fta" path="res://src/resources/sword_item.tres" id="3_5lsyw"]
 [ext_resource type="Resource" uid="uid://byeli4ccyvyv7" path="res://src/resources/shoes_item.tres" id="4_5lsyw"]
@@ -144,7 +144,7 @@ position = Vector2(368, 544)
 shape = SubResource("RectangleShape2D_kbdt0")
 
 [node name="CloakedEnemy" parent="Rooms/Outside/RoomObjects" parent_id_path=PackedInt32Array(43439420, 1075803513) index="0" unique_id=2023609171 instance=ExtResource("10_lp058")]
-position = Vector2(88, 200)
+position = Vector2(80, 216)
 attack_range = 15
 
 [node name="Dungeon" parent="Rooms" unique_id=913753963 instance=ExtResource("6_2lg1k")]
