@@ -121,7 +121,6 @@ _data = {
 
 [node name="CloakedEnemy" unique_id=2023609171 node_paths=PackedStringArray("animator") instance=ExtResource("1_50pid")]
 attack_range = 10
-min_target_dist = 30
 animator = NodePath("Animator")
 
 [node name="HurtBox" parent="." index="0" unique_id=334642380]

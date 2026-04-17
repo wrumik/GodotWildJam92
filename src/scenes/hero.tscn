@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cq1dwvwgl41wp" path="res://src/scripts/states/player/idle.gd" id="2_qi43m"]
 [ext_resource type="Script" uid="uid://dxsrt2qxhsd4o" path="res://src/scripts/states/player/walk.gd" id="3_dwb8i"]
 [ext_resource type="Script" uid="uid://fwhifp3rfxfw" path="res://src/scripts/states/attack.gd" id="4_7t2mr"]
+[ext_resource type="Script" uid="uid://fdnwdcl5045a" path="res://src/scripts/hurt_box.gd" id="6_oc5sv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oyxmx"]
 size = Vector2(10, 4)
@@ -314,6 +315,10 @@ _data = {
 &"walk_up": SubResource("Animation_ubabj")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a8rxs"]
+radius = 7.0
+height = 22.0
+
 [node name="Hero" type="CharacterBody2D" unique_id=92466931 node_paths=PackedStringArray("initial_state")]
 y_sort_enabled = true
 collision_layer = 5
@@ -370,3 +375,13 @@ position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_oyxmx")
 target_position = Vector2(0, -6)
 max_results = 5
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1342387784]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("6_oc5sv")
+metadata/_custom_type_script = "uid://fdnwdcl5045a"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1321218661]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_a8rxs")

@@ -76,4 +76,4 @@ func check_target() -> void:
 
 
 func attack() -> void:
-	print("IM ATTACKING YOU RN!")
+	$RotatingMeleeAttack.try_attack(target.global_position)

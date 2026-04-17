@@ -14,7 +14,7 @@ size = Vector2(16, 16)
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6648936, 0.7415731), -1.6002723, -1.6002723, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="PushableBox" type="StaticBody2D" unique_id=159191363]
+[node name="PushableBox" type="AnimatableBody2D" unique_id=101220826]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_x67a3")
