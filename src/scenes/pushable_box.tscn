@@ -29,18 +29,22 @@ shape = SubResource("RectangleShape2D_278db")
 
 [node name="CastDown" type="RayCast2D" parent="." unique_id=478091179]
 target_position = Vector2(0, 8)
+hit_from_inside = true
 
 [node name="CastLeft" type="RayCast2D" parent="." unique_id=2041041523]
 position = Vector2(-8, -8)
 target_position = Vector2(-8, 0)
+hit_from_inside = true
 
 [node name="CastRight" type="RayCast2D" parent="." unique_id=376401302]
 position = Vector2(8, -8)
 target_position = Vector2(8, 0)
+hit_from_inside = true
 
 [node name="CastUp" type="RayCast2D" parent="." unique_id=704926633]
 position = Vector2(0, -16)
 target_position = Vector2(0, -8)
+hit_from_inside = true
 
 [node name="BoxBreakParticles" type="CPUParticles2D" parent="." unique_id=738933148]
 z_index = 1

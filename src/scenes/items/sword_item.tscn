@@ -360,8 +360,8 @@ collision_mask = 2
 collide_with_areas = true
 
 [node name="AttackUpCast" type="RayCast2D" parent="." unique_id=371125711]
-position = Vector2(-4, -8)
-target_position = Vector2(0, -23)
+position = Vector2(-4, -7)
+target_position = Vector2(0, -24)
 collision_mask = 2
 collide_with_areas = true
 
