@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://t8fvyofp0oa4"]
+
+[ext_resource type="Script" uid="uid://cjmjgid6exm1l" path="res://src/scenes/objects/unlockable_body.gd" id="1_ig6gv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5wqp"]
+size = Vector2(16, 16)
+
+[node name="UnlockableBody" type="StaticBody2D" unique_id=2141934034]
+script = ExtResource("1_ig6gv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=239332683]
+shape = SubResource("RectangleShape2D_k5wqp")

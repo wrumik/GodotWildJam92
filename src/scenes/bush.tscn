@@ -29,16 +29,15 @@ collision_mask = 3
 script = ExtResource("1_vy6u3")
 
 [node name="BushSprite" type="Sprite2D" parent="." unique_id=147718641]
+position = Vector2(0, 8)
 texture = ExtResource("2_ifwwr")
 offset = Vector2(0, -8)
 
 [node name="BushCollider" type="CollisionShape2D" parent="." unique_id=1440226013]
-position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_qlnlq")
 
 [node name="LeavesParticles1" type="CPUParticles2D" parent="." unique_id=77261145]
 z_index = 1
-position = Vector2(0, -8)
 emitting = false
 amount = 3
 texture = SubResource("AtlasTexture_xygfv")
@@ -58,7 +57,6 @@ scale_amount_curve = SubResource("Curve_qlnlq")
 
 [node name="LeavesParticles2" type="CPUParticles2D" parent="." unique_id=1971307736]
 z_index = 1
-position = Vector2(0, -8)
 emitting = false
 amount = 3
 texture = SubResource("AtlasTexture_0wqvw")

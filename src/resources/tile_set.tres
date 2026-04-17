@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dnye4csqgs6pa" path="res://src/sprites/forest_tiles.png" id="1_y48gx"]
 [ext_resource type="Texture2D" uid="uid://b01y7g7jw6kqq" path="res://src/sprites/temple_tileset.png" id="2_n5e66"]
+[ext_resource type="PackedScene" uid="uid://65ml0270au3r" path="res://src/scenes/objects/locked_door.tscn" id="3_n5e66"]
+[ext_resource type="PackedScene" uid="uid://bycdvqviiutbb" path="res://src/scenes/bush.tscn" id="4_252ht"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_24j03"]
 texture = ExtResource("1_y48gx")
@@ -1148,6 +1150,10 @@ texture = ExtResource("2_n5e66")
 14:11/0/y_sort_origin = 8
 14:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_252ht"]
+scenes/1/scene = ExtResource("3_n5e66")
+scenes/2/scene = ExtResource("4_252ht")
+
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -1159,3 +1165,4 @@ terrain_set_0/terrain_2/name = "Grass"
 terrain_set_0/terrain_2/color = Color(0.7411765, 0.5019608, 0.7764706, 1)
 sources/0 = SubResource("TileSetAtlasSource_24j03")
 sources/1 = SubResource("TileSetAtlasSource_p1ia5")
+sources/2 = SubResource("TileSetScenesCollectionSource_252ht")

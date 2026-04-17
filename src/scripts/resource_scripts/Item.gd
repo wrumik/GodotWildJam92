@@ -8,6 +8,6 @@ extends Resource
 # for now item type doesnt matter and will always be treated as weapon
 enum item_types {
 	WEAPON,
-	CONSUMABLE,
+	KEY,
 	UPGRADE
 }

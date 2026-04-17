@@ -22,6 +22,8 @@ var last_direction: Vector2 = Vector2.DOWN
 
 var item_instance: Item = null
 
+var keys: int = 0
+
 
 # state machine related functions
 func _ready() -> void:
@@ -79,6 +81,10 @@ func grab_item(item: ItemResource):
 		add_child(temp_item)
 		temp_item.holder = self
 		temp_item.picked_up()
+		return
+		
+	if item.item_type == ItemResource.item_types.KEY:
+		keys += 1
 		return
 	
 	if item_instance:

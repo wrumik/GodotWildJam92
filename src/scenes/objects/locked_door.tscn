@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://65ml0270au3r"]
+
+[ext_resource type="PackedScene" uid="uid://t8fvyofp0oa4" path="res://src/scenes/objects/unlockable_body.tscn" id="1_goig0"]
+[ext_resource type="Texture2D" uid="uid://b01y7g7jw6kqq" path="res://src/sprites/temple_tileset.png" id="3_ompwx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b843s"]
+atlas = ExtResource("3_ompwx")
+region = Rect2(32, 80, 16, 16)
+
+[node name="LockedDoor" unique_id=2141934034 instance=ExtResource("1_goig0")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1" unique_id=1054267300]
+texture = SubResource("AtlasTexture_b843s")
