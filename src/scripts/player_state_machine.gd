@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 @export var initial_state: State
 
-@export var base_speed: float = 90.0
+@export var base_speed: float = 90.0 + 100
 @onready var speed: float = base_speed
 
 var states_dict: Dictionary[String, State]

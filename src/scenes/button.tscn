@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cj541qp11kaub"]
+
+[ext_resource type="Script" uid="uid://cxm3syhabnxx0" path="res://src/scripts/button.gd" id="1_qlidy"]
+[ext_resource type="Texture2D" uid="uid://dcg6e6sh88kc4" path="res://src/sprites/pressure_button.png" id="1_wgp4t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlidy"]
+size = Vector2(14, 11)
+
+[node name="Button" type="Area2D" unique_id=443094580]
+script = ExtResource("1_qlidy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=67447756]
+texture = ExtResource("1_wgp4t")
+offset = Vector2(0, -8)
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=614775561]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_qlidy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
