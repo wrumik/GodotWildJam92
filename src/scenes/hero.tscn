@@ -5,7 +5,99 @@
 [ext_resource type="Script" uid="uid://cq1dwvwgl41wp" path="res://src/scripts/states/player/idle.gd" id="2_qi43m"]
 [ext_resource type="Script" uid="uid://dxsrt2qxhsd4o" path="res://src/scripts/states/player/walk.gd" id="3_dwb8i"]
 [ext_resource type="Script" uid="uid://fwhifp3rfxfw" path="res://src/scripts/states/attack.gd" id="4_7t2mr"]
+[ext_resource type="Shader" uid="uid://bqx2ujp78ykvh" path="res://src/shaders/hit.gdshader" id="5_a8rxs"]
 [ext_resource type="Script" uid="uid://fdnwdcl5045a" path="res://src/scripts/hurt_box.gd" id="6_oc5sv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ubabj"]
+resource_local_to_scene = true
+shader = ExtResource("5_a8rxs")
+shader_parameter/enabled = false
+
+[sub_resource type="Animation" id="Animation_68asi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PlayerSprite:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HurtBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PlayerSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0fdns"]
+resource_name = "hit"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PlayerSprite:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HurtBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PlayerSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.50000006, 0.6, 0.70000005, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.29411766), Color(1, 1, 1, 1), Color(1, 1, 1, 0.2941177), Color(1, 1, 1, 1), Color(1, 1, 1, 0.29411766), Color(1, 1, 1, 1), Color(1, 1, 1, 0.2941177), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_68asi"]
+_data = {
+&"RESET": SubResource("Animation_68asi"),
+&"hit": SubResource("Animation_0fdns")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oyxmx"]
 size = Vector2(10, 4)
@@ -339,10 +431,16 @@ script = ExtResource("3_dwb8i")
 script = ExtResource("4_7t2mr")
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1335606832]
+material = SubResource("ShaderMaterial_ubabj")
 texture = ExtResource("1_6gdmi")
 offset = Vector2(0, -8)
 hframes = 4
 vframes = 12
+
+[node name="HitEffect" type="AnimationPlayer" parent="." unique_id=537320255]
+unique_name_in_owner = true
+root_node = NodePath("../PlayerCollider")
+libraries/ = SubResource("AnimationLibrary_68asi")
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="." unique_id=1542811734]
 z_index = 1
@@ -380,8 +478,13 @@ max_results = 5
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("6_oc5sv")
+max_health = 5
 metadata/_custom_type_script = "uid://fdnwdcl5045a"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1321218661]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_a8rxs")
+
+[connection signal="animation_finished" from="HitEffect" to="." method="_on_hit_effect_animation_finished"]
+[connection signal="damage_taken" from="HurtBox" to="." method="_on_hurt_box_damage_taken"]
+[connection signal="destroyed" from="HurtBox" to="." method="_on_hurt_box_destroyed"]

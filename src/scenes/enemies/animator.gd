@@ -1,16 +1,33 @@
 class_name Animator
 extends AnimationPlayer
 
+var last_dir_name: String = ""
+
+func _ready() -> void:
+	animation_finished.connect(
+	func(anim: String): 
+		if "attack" in anim:
+			play("RESET")
+		)
 
 func update(_motion: Vector2, looking: Vector2, _delta: float) -> void:
-	var cardinal = GridMover.dir_to_cardinal(looking)
+	var dir = GridMover.dir_to_cardinal(looking)
 	
-	match cardinal:
+	match dir:
 		Vector2i.LEFT:
-			play("move_left")
+			last_dir_name = "left"
 		Vector2i.RIGHT:
-			play("move_right")
+			last_dir_name = "right"
 		Vector2i.UP:
-			play("move_up")
+			last_dir_name = "up"
 		Vector2i.DOWN:
-			play("move_down")
+			last_dir_name = "down"
+		_: 
+			last_dir_name = "down"
+	
+	if not "attack" in current_animation:
+		play("move_" + last_dir_name)
+
+
+func play_attack() -> void:
+	play("attack_" + last_dir_name)

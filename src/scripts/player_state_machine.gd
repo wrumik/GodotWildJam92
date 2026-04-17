@@ -90,3 +90,11 @@ func grab_item(item: ItemResource):
 	item_instance.picked_up()
 	
 	PlayerUI.set_can_attack(item.item_type == ItemResource.item_types.WEAPON)
+
+
+func _on_hurt_box_damage_taken(_amount: int) -> void:
+	%HitEffect.play("hit")
+
+
+func _on_hurt_box_destroyed() -> void:
+	get_tree().reload_current_scene()

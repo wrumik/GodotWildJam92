@@ -16,6 +16,8 @@ radius = 70.0
 [node name="Enemy" type="CharacterBody2D" unique_id=2023609171]
 motion_mode = 1
 script = ExtResource("1_h36vd")
+attack_range = 28
+min_target_dist = 20
 
 [node name="HurtBox" parent="." unique_id=334642380 instance=ExtResource("2_h36vd")]
 
@@ -54,7 +56,7 @@ shape = SubResource("CircleShape2D_36k55")
 
 [node name="AttackCooldown" type="Timer" parent="RotatingMeleeAttack" unique_id=1815420959]
 unique_name_in_owner = true
-wait_time = 0.5
+wait_time = 2.5
 one_shot = true
 
 [connection signal="destroyed" from="HurtBox" to="." method="_on_hurt_box_destroyed"]
