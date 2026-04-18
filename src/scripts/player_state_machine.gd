@@ -12,6 +12,7 @@ extends CharacterBody2D
 @export var initial_state: State
 
 @export var base_speed: float = 90.0 + 100
+@export var grass: TileMapLayer = null
 @onready var speed: float = base_speed
 
 var states_dict: Dictionary[String, State]
@@ -79,7 +80,10 @@ func _physics_process(delta: float) -> void:
 
 
 func play_step_sound():
-	SoundManager.play_sfx(Sounds.FOOTSTEP, 0.5, randf_range(0.7, 1.0))
+	if grass and grass.local_to_map(grass.to_local(self.global_position)) in grass.get_used_cells():
+		SoundManager.play_random_sfx(Sounds.FOOTSTEP_GRASS, 0.5)
+	else:
+		SoundManager.play_sfx(Sounds.FOOTSTEP, 0.5, randf_range(0.7, 1.0))
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -88,6 +92,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 #item related functions
 func grab_item(item: ItemResource):
+	SoundManager.play_sfx(Sounds.GAIN_ITEM)
 	if item.item_type == ItemResource.item_types.UPGRADE:
 		var temp_item: Item = item.item_scene.instantiate()
 		add_child(temp_item)
@@ -103,7 +108,7 @@ func grab_item(item: ItemResource):
 		item_instance.queue_free()
 	
 	item_instance = item.item_scene.instantiate()
-	add_child(item_instance)
+	add_child.call_deferred(item_instance)
 	item_instance.holder = self
 	item_instance.picked_up()
 	

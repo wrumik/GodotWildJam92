@@ -3,13 +3,13 @@
 [ext_resource type="TileSet" uid="uid://bed4r18biqbpx" path="res://src/resources/tile_set.tres" id="1_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://bpi7iy00k470i" path="res://src/scenes/hero.tscn" id="1_kkvs4"]
 [ext_resource type="Script" uid="uid://dvyh2cdhfxf3j" path="res://src/scripts/navigation_layer.gd" id="1_kokaf"]
-[ext_resource type="PackedScene" path="res://src/scenes/ground_item.tscn" id="2_2lg1k"]
+[ext_resource type="PackedScene" uid="uid://bryvahlct4puu" path="res://src/scenes/ground_item.tscn" id="2_2lg1k"]
 [ext_resource type="Resource" uid="uid://drmndob5m7fta" path="res://src/resources/sword_item.tres" id="3_5lsyw"]
 [ext_resource type="Resource" uid="uid://byeli4ccyvyv7" path="res://src/resources/shoes_item.tres" id="4_5lsyw"]
 [ext_resource type="Script" uid="uid://7utyh8crv6yk" path="res://src/scripts/rooms.gd" id="5_dbro3"]
 [ext_resource type="PackedScene" uid="uid://dh4b30n6lfsqb" path="res://src/scenes/room_rect.tscn" id="6_2lg1k"]
 [ext_resource type="Resource" uid="uid://ty05coowvrw3" path="res://src/resources/key.tres" id="7_ccybt"]
-[ext_resource type="Script" path="res://src/scripts/map_objects.gd" id="8_ccybt"]
+[ext_resource type="Script" uid="uid://dhsd1h5vjja1y" path="res://src/scripts/map_objects.gd" id="8_ccybt"]
 [ext_resource type="PackedScene" uid="uid://cp6dkulh4n2b1" path="res://src/scenes/objects/staircase.tscn" id="9_50ugh"]
 [ext_resource type="PackedScene" uid="uid://3ty7xnxylxbt" path="res://src/scenes/pushable_box.tscn" id="9_kokaf"]
 [ext_resource type="PackedScene" uid="uid://brndi6l01vp4b" path="res://src/scenes/enemies/cloaked_enemy.tscn" id="10_lp058"]
@@ -112,8 +112,9 @@ other_side = NodePath("../Staircase")
 [node name="Actors" type="Node2D" parent="." unique_id=49388061]
 y_sort_enabled = true
 
-[node name="Hero" parent="Actors" unique_id=92466931 instance=ExtResource("1_kkvs4")]
+[node name="Hero" parent="Actors" unique_id=92466931 node_paths=PackedStringArray("grass") instance=ExtResource("1_kkvs4")]
 position = Vector2(144, 80)
+grass = NodePath("../../GrassLayer")
 
 [node name="Camera2D" type="Camera2D" parent="Actors/Hero" unique_id=945295386]
 unique_name_in_owner = true
@@ -168,6 +169,9 @@ affected_node = NodePath("Gate")
 [node name="Gate" parent="MapObjects/Button3" unique_id=319843710 instance=ExtResource("14_4rjby")]
 position = Vector2(152, -192)
 
+[node name="PushableBox4" parent="MapObjects" unique_id=1112740651 instance=ExtResource("9_kokaf")]
+position = Vector2(112, 56)
+
 [node name="Rooms" type="Node2D" parent="." unique_id=1246828311]
 z_index = 1
 script = ExtResource("5_dbro3")
@@ -181,6 +185,7 @@ position = Vector2(288, 160)
 shape = SubResource("RectangleShape2D_yk6rd")
 
 [node name="SecretArea" parent="Rooms" unique_id=159630187 instance=ExtResource("6_2lg1k")]
+inside = false
 
 [node name="Corner1" parent="Rooms/SecretArea" index="0" unique_id=761166111]
 position = Vector2(304, 0)
@@ -192,6 +197,7 @@ position = Vector2(592, 160)
 shape = SubResource("RectangleShape2D_htxff")
 
 [node name="Outside" parent="Rooms" unique_id=43439420 instance=ExtResource("6_2lg1k")]
+inside = false
 
 [node name="Corner1" parent="Rooms/Outside" index="0" unique_id=761166111]
 position = Vector2(-176, 160)
@@ -203,6 +209,7 @@ position = Vector2(368, 544)
 shape = SubResource("RectangleShape2D_v252j")
 
 [node name="Outside2" parent="Rooms" unique_id=1783096130 instance=ExtResource("6_2lg1k")]
+inside = false
 
 [node name="Corner1" parent="Rooms/Outside2" index="0" unique_id=761166111]
 position = Vector2(-432, 544)
@@ -214,6 +221,7 @@ position = Vector2(-48, 704)
 shape = SubResource("RectangleShape2D_qsm7c")
 
 [node name="Outside3" parent="Rooms" unique_id=1495381764 instance=ExtResource("6_2lg1k")]
+inside = false
 
 [node name="Corner1" parent="Rooms/Outside3" index="0" unique_id=761166111]
 position = Vector2(-816, 288)
@@ -233,6 +241,7 @@ position = Vector2(-704, 480)
 enemy_to_spawn = ExtResource("10_lp058")
 
 [node name="PuzzleRoom" parent="Rooms" unique_id=791779921 instance=ExtResource("6_2lg1k")]
+inside = false
 
 [node name="Corner1" parent="Rooms/PuzzleRoom" index="0" unique_id=761166111]
 position = Vector2(-1168, 288)
@@ -243,15 +252,8 @@ position = Vector2(-816, 592)
 [node name="RoomShape" parent="Rooms/PuzzleRoom/Area2D" parent_id_path=PackedInt32Array(791779921, 1455719450) index="0" unique_id=408389936]
 shape = SubResource("RectangleShape2D_j04uq")
 
-[node name="EnemyHolder" parent="Rooms/PuzzleRoom/RoomObjects" parent_id_path=PackedInt32Array(791779921, 1075803513) index="0" unique_id=745617790 instance=ExtResource("11_24j03")]
-position = Vector2(-528, 560)
-enemy_to_spawn = ExtResource("10_lp058")
-
-[node name="EnemyHolder2" parent="Rooms/PuzzleRoom/RoomObjects" parent_id_path=PackedInt32Array(791779921, 1075803513) index="1" unique_id=279316216 instance=ExtResource("11_24j03")]
-position = Vector2(-704, 480)
-enemy_to_spawn = ExtResource("10_lp058")
-
 [node name="Outside4" parent="Rooms" unique_id=1448106018 instance=ExtResource("6_2lg1k")]
+inside = false
 
 [node name="Corner1" parent="Rooms/Outside4" index="0" unique_id=761166111]
 position = Vector2(-1200, 128)
@@ -262,15 +264,8 @@ position = Vector2(-176, 288)
 [node name="RoomShape" parent="Rooms/Outside4/Area2D" parent_id_path=PackedInt32Array(1448106018, 1455719450) index="0" unique_id=408389936]
 shape = SubResource("RectangleShape2D_tyryd")
 
-[node name="EnemyHolder" parent="Rooms/Outside4/RoomObjects" parent_id_path=PackedInt32Array(1448106018, 1075803513) index="0" unique_id=463250404 instance=ExtResource("11_24j03")]
-position = Vector2(-528, 560)
-enemy_to_spawn = ExtResource("10_lp058")
-
-[node name="EnemyHolder2" parent="Rooms/Outside4/RoomObjects" parent_id_path=PackedInt32Array(1448106018, 1075803513) index="1" unique_id=1734476996 instance=ExtResource("11_24j03")]
-position = Vector2(-704, 480)
-enemy_to_spawn = ExtResource("10_lp058")
-
 [node name="TreeMaze" parent="Rooms" unique_id=875321023 instance=ExtResource("6_2lg1k")]
+inside = false
 
 [node name="Corner1" parent="Rooms/TreeMaze" index="0" unique_id=761166111]
 position = Vector2(-1168, -808)

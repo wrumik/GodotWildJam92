@@ -8,6 +8,8 @@ var tween: Tween = null
 
 
 func _ready() -> void:
+	SoundManager.play_music_tracks(Sounds.MUSIC_INSIDE, Sounds.MUSIC_OUTSIDE)
+	
 	%Camera2D.position_smoothing_enabled = false
 	
 	for c in get_children():
@@ -27,6 +29,8 @@ func _on_room_entered(player: PlayerStateMachine, rect: RoomRect) -> void:
 	camera.limit_left = bounds.position.x
 	camera.limit_bottom = bounds.end.y
 	camera.limit_right = bounds.end.x
+	
+	SoundManager.switch_music_track(rect.inside)
 	
 	if first_time or player.teleporting:
 		player.teleporting = true

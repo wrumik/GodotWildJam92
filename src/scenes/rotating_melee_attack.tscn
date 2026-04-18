@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://5y436m1s6wvs"]
+
+[ext_resource type="Script" uid="uid://c6y06dn7lrxd" path="res://src/scenes/enemies/rotating_melee_attack.gd" id="1_rb1tq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_36k55"]
+
+[node name="RotatingMeleeAttack" type="Node2D" unique_id=1064115119]
+script = ExtResource("1_rb1tq")
+
+[node name="AttackRange" type="Area2D" parent="." unique_id=24184185]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=460095862]
+unique_name_in_owner = true
+position = Vector2(10, 0)
+shape = SubResource("CircleShape2D_36k55")
+
+[node name="AttackCooldown" type="Timer" parent="." unique_id=934226413]
+unique_name_in_owner = true
+wait_time = 2.5
+one_shot = true

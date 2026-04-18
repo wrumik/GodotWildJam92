@@ -3,15 +3,13 @@
 [ext_resource type="Script" uid="uid://dxb2xqggeyq07" path="res://src/scenes/enemies/enemy.gd" id="1_h36vd"]
 [ext_resource type="PackedScene" uid="uid://cd0orkia7pp4q" path="res://src/scenes/hurt_box.tscn" id="2_h36vd"]
 [ext_resource type="Script" uid="uid://bwllcatl1n0we" path="res://src/scripts/enemies/grid_mover.gd" id="3_36k55"]
-[ext_resource type="Script" uid="uid://c6y06dn7lrxd" path="res://src/scenes/enemies/rotating_melee_attack.gd" id="4_khq07"]
+[ext_resource type="PackedScene" uid="uid://5y436m1s6wvs" path="res://src/scenes/rotating_melee_attack.tscn" id="4_khq07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd3hd"]
 size = Vector2(14, 5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h36vd"]
 radius = 70.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_36k55"]
 
 [node name="Enemy" type="CharacterBody2D" unique_id=2023609171]
 motion_mode = 1
@@ -40,23 +38,7 @@ shape = SubResource("CircleShape2D_h36vd")
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1871524328]
 unique_name_in_owner = true
 
-[node name="RotatingMeleeAttack" type="Node2D" parent="." unique_id=1436269166]
+[node name="RotatingMeleeAttack" parent="." unique_id=1064115119 instance=ExtResource("4_khq07")]
 position = Vector2(0, -6)
-script = ExtResource("4_khq07")
-
-[node name="AttackRange" type="Area2D" parent="RotatingMeleeAttack" unique_id=60388813]
-unique_name_in_owner = true
-collision_layer = 8
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatingMeleeAttack/AttackRange" unique_id=496267978]
-unique_name_in_owner = true
-position = Vector2(10, 0)
-shape = SubResource("CircleShape2D_36k55")
-
-[node name="AttackCooldown" type="Timer" parent="RotatingMeleeAttack" unique_id=1815420959]
-unique_name_in_owner = true
-wait_time = 2.5
-one_shot = true
 
 [connection signal="destroyed" from="HurtBox" to="." method="_on_hurt_box_destroyed"]

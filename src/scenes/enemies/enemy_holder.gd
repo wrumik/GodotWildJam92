@@ -25,6 +25,8 @@ func reset() -> void:
 		if is_inside_tree():
 			# TODO: Poof effect on enemy position before despawning?
 			await get_tree().create_timer(0.3).timeout
+			if not current_enemy:
+				return
 			current_enemy.queue_free()
 	
 	current_enemy = null

@@ -26,17 +26,21 @@ func destroy(attack_direction: Vector2):
 		Vector2.RIGHT:
 			if cast_right.is_colliding():
 				destroy_box()
+				return
 		Vector2.LEFT:
 			if cast_left.is_colliding():
 				destroy_box()
+				return
 		Vector2.UP:
 			if cast_up.is_colliding():
 				destroy_box()
+				return
 		Vector2.DOWN:
 			if cast_down.is_colliding():
 				destroy_box()
+				return
 	target_position += attack_direction * cell_size
-	
+	SoundManager.play_sfx(Sounds.BOX_MOVING, 0.6)
 
 func destroy_box():
 	SoundManager.play_sfx(Sounds.BOX_BROKEN)

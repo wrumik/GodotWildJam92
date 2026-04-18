@@ -1,6 +1,10 @@
 class_name Sounds
 extends RefCounted
 
+#MUSIC
+const MUSIC_INSIDE: StringName = "res://src/sound/music/inside.mp3"
+const MUSIC_OUTSIDE: StringName = "res://src/sound/music/outside.mp3"
+
 #UI SOUNDS
 const UI_FORWARD: StringName = "res://src/sound/UI_forward.wav"
 const UI_BACKWARD: StringName = "res://src/sound/UI_backward.wav"
@@ -11,3 +15,10 @@ const SWORD_SWOOSH: StringName = "res://src/sound/sword_swoosh.wav"
 const BUSH_SLICED: StringName = "res://src/sound/bush_sliced.wav"
 const GAIN_ITEM: StringName = "res://src/sound/gain_item.wav"
 const BOX_BROKEN: StringName = "res://src/sound/box_broken.wav"
+const BOX_MOVING: StringName = "res://src/sound/Box Moving.wav"
+
+const FOOTSTEP_GRASS: Array[StringName] = [
+	"res://src/sound/grass_step1.wav", 
+	"res://src/sound/grass_step2.wav", 
+	"res://src/sound/grass_step3.wav",
+]

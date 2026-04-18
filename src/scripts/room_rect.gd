@@ -4,6 +4,8 @@ extends Node2D
 signal room_entered(body: PlayerStateMachine)
 signal room_exited(body: PlayerStateMachine)
 
+@export var inside: bool = true
+
 var navigation_grid: AStarGrid2D = null # :
 	#set(value):
 		#navigation_grid = value

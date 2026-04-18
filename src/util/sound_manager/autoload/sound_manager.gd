@@ -25,12 +25,39 @@ func play_music(path: String) -> void:
 			return
 		else:
 			_music_player.stop()
+
+	for t in $MusicTracks.get_children():
+		t.stop()
+		t.queue_free()
 		
 	if !ResourceLoader.exists(path):
 		print("Cannot find " + path + "!")
 		
 	_music_player.stream = load(path)
 	_music_player.play()
+
+
+func play_music_tracks(track_1: StringName, track_2: StringName) -> void:
+	if _music_player.playing:
+		_music_player.stop()
+
+	if !ResourceLoader.exists(track_1):
+		print("Cannot find " + track_1 + "!")
+	if !ResourceLoader.exists(track_2):
+		print("Cannot find " + track_2 + "!")
+	
+	%Track1.stream = load(track_1)
+	%Track2.stream = load(track_2)
+	
+	%Track1.play()
+	%Track2.play()
+
+
+func switch_music_track(to_1: bool) -> void:
+	if to_1:
+		$TrackSwitcher.play("switch_to_1")
+	else:
+		$TrackSwitcher.play("switch_to_2")
 
 
 func stop_music() -> void:
@@ -81,9 +108,9 @@ func play_sfx(path: String, volume_percent = 1.0, pitch_scale = 1.0) -> void:
 	player.pitch_scale = pitch_scale
 
 
-func play_random_sfx(sounds: Array, volume_percent = 1.0) -> void:
+func play_random_sfx(sounds: Array, volume_percent = 1.0, pitch_scale = 1.0) -> void:
 	var idx = randi() % sounds.size()
-	play_sfx(sounds[idx], volume_percent)
+	play_sfx(sounds[idx], volume_percent, pitch_scale)
 	
 
 func stop_sfx(path: String) -> void:
