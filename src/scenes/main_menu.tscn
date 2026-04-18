@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dks4fr5c1m6dy"]
 
 [ext_resource type="Script" uid="uid://c85vn5vyxqud0" path="res://src/scripts/main_menu.gd" id="1_rm437"]
+[ext_resource type="PackedScene" uid="uid://bv8jm1hnpuied" path="res://src/util/pause_menu.tscn" id="2_mob6k"]
 
 [node name="MainMenu" type="Control" unique_id=2088319255]
 layout_mode = 3
@@ -54,6 +55,12 @@ text = "quit"
 [node name="OptionsMenu" type="Control" parent="MarginContainer" unique_id=402588072]
 layout_mode = 2
 mouse_filter = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1561327166]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1807044701 instance=ExtResource("2_mob6k")]
+offset_top = -3.0
+offset_bottom = 3.0
 
 [connection signal="pressed" from="MarginContainer/Buttons/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Buttons/OptionsButton" to="." method="_on_options_button_pressed"]

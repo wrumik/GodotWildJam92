@@ -33,7 +33,7 @@ func _on_room_entered(player: PlayerStateMachine, rect: RoomRect) -> void:
 	SoundManager.switch_music_track(rect.inside)
 	
 	if first_time or player.teleporting:
-		player.teleporting = true
+		player.teleporting = false
 		first_time = false
 		return
 		

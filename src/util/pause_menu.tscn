@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bv8jm1hnpuied"]
+
+[ext_resource type="PackedScene" uid="uid://ux1lgkuk6mvl" path="res://src/util/sound_manager/volume_settings.tscn" id="1_1guw7"]
+[ext_resource type="Theme" uid="uid://jdrnoaleaksv" path="res://src/resources/game_theme.tres" id="1_vhnue"]
+[ext_resource type="Script" uid="uid://bdm1cukvh58ue" path="res://src/util/pause_menu.gd" id="2_b6bf3"]
+[ext_resource type="PackedScene" uid="uid://bi0ok84377k2o" path="res://src/util/input_mapper/key_rebind.tscn" id="3_luewq"]
+[ext_resource type="AudioStream" uid="uid://2p6kyr7bjei2" path="res://src/sound/UI_forward.wav" id="5_e7t3y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vsawu"]
+font_color = Color(1, 1, 1, 0.752941)
+
+[node name="PauseMenu" type="VBoxContainer" unique_id=1807044701]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vhnue")
+script = ExtResource("2_b6bf3")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1889121910]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1191989595]
+layout_mode = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_vsawu")
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=304733712]
+layout_mode = 2
+size_flags_vertical = 3
+tab_alignment = 1
+current_tab = 0
+
+[node name="Volume" parent="TabContainer" unique_id=896347373 instance=ExtResource("1_1guw7")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Key Bindings" parent="TabContainer" unique_id=543824821 instance=ExtResource("3_luewq")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1882034458]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2" unique_id=2144791900]
+layout_mode = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="MarginContainer2/HBoxContainer" unique_id=1324455366]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Resume"
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=1109416776]
+stream = ExtResource("5_e7t3y")
+
+[connection signal="tab_clicked" from="TabContainer" to="." method="_on_tab_container_tab_clicked"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/Resume" to="." method="_on_resume_pressed"]

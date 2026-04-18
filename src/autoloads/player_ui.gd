@@ -3,10 +3,16 @@ extends CanvasLayer
 
 func _ready() -> void:
 	set_can_attack(false)
+	
+	KeyActions.keybinds_updated.connect(func(): 
+		var action = KeyActions.get_action(&"attack")
+		$Control/VBoxContainer/AttackInstruction/Label.text = action.display_name + ": " + KeyActions.get_key_string_from_code(action.keycode)
+		)
+
 
 func set_can_attack(can_attack: bool) -> void:
 	%AttackInstruction.visible = can_attack
-
+	
 
 func update_keys(amount: int) -> void:
 	for c in %KeyLayout.get_children():

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bi0ok84377k2o"]
+
+[ext_resource type="Script" uid="uid://b8w0a8f02cxu" path="res://src/util/input_mapper/KeyRebind.gd" id="1_r3uuk"]
+[ext_resource type="Theme" uid="uid://jdrnoaleaksv" path="res://src/resources/game_theme.tres" id="1_vj317"]
+[ext_resource type="Script" uid="uid://d2ty80fr4v2hb" path="res://src/util/input_mapper/InputMapper.gd" id="1_wokv1"]
+[ext_resource type="Script" uid="uid://bh054dp1j388n" path="res://src/util/input_mapper/ButtonHolder.gd" id="2_gf0iv"]
+[ext_resource type="Script" uid="uid://by3vopvwokvuw" path="res://src/util/input_mapper/KeySelectPopup.gd" id="3_e2v1x"]
+
+[node name="KeyRebind" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vj317")
+script = ExtResource("1_r3uuk")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonHolder" type="VBoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_gf0iv")
+
+[node name="KeySelectPopup" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+script = ExtResource("3_e2v1x")
+
+[node name="BG" type="ColorRect" parent="KeySelectPopup"]
+layout_mode = 2
+color = Color(0.160784, 0.160784, 0.160784, 1)
+
+[node name="Label" type="Label" parent="KeySelectPopup"]
+layout_mode = 2
+text = "Press a key...
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputMapper" type="Node" parent="."]
+script = ExtResource("1_wokv1")
