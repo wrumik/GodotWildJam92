@@ -435,7 +435,7 @@ material = SubResource("ShaderMaterial_ubabj")
 texture = ExtResource("1_6gdmi")
 offset = Vector2(0, -8)
 hframes = 4
-vframes = 12
+vframes = 24
 
 [node name="HitEffect" type="AnimationPlayer" parent="." unique_id=537320255]
 unique_name_in_owner = true

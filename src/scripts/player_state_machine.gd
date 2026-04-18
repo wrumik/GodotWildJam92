@@ -24,6 +24,8 @@ var item_instance: Item = null
 
 var keys: int = 0
 
+var teleporting: bool = false
+
 
 # state machine related functions
 func _ready() -> void:

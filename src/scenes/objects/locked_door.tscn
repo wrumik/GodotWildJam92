@@ -7,7 +7,16 @@
 atlas = ExtResource("3_ompwx")
 region = Rect2(32, 80, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_d71q5"]
+atlas = ExtResource("3_ompwx")
+region = Rect2(32, 48, 16, 16)
+
 [node name="LockedDoor" unique_id=2141934034 instance=ExtResource("1_goig0")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1" unique_id=1054267300]
 texture = SubResource("AtlasTexture_b843s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" index="0" unique_id=553202044]
+position = Vector2(0, -16)
+rotation = 3.1415927
+texture = SubResource("AtlasTexture_d71q5")

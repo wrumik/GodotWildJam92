@@ -17,7 +17,7 @@ func _ready() -> void:
 			c.setup()
 			
 			
-func _on_room_entered(_player: PlayerStateMachine, rect: RoomRect) -> void:
+func _on_room_entered(player: PlayerStateMachine, rect: RoomRect) -> void:
 	var bounds = rect.global_bounds()
 	
 	var camera = %Camera2D
@@ -28,7 +28,8 @@ func _on_room_entered(_player: PlayerStateMachine, rect: RoomRect) -> void:
 	camera.limit_bottom = bounds.end.y
 	camera.limit_right = bounds.end.x
 	
-	if first_time:
+	if first_time or player.teleporting:
+		player.teleporting = true
 		first_time = false
 		return
 		

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cp6dkulh4n2b1"]
+
+[ext_resource type="Script" uid="uid://bwis0ax2exh34" path="res://src/scenes/objects/staircase.gd" id="1_p13i7"]
+[ext_resource type="Texture2D" uid="uid://b01y7g7jw6kqq" path="res://src/sprites/temple_tileset.png" id="2_tec8a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j557n"]
+atlas = ExtResource("2_tec8a")
+region = Rect2(80, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4i3w"]
+atlas = ExtResource("2_tec8a")
+region = Rect2(48, 176, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tec8a"]
+size = Vector2(16, 16)
+
+[node name="Staircase" type="Area2D" unique_id=1737655896]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_p13i7")
+up_sprite = SubResource("AtlasTexture_j557n")
+down_sprite = SubResource("AtlasTexture_t4i3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1506649901]
+shape = SubResource("RectangleShape2D_tec8a")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=18516992]
+unique_name_in_owner = true
+texture = SubResource("AtlasTexture_j557n")
