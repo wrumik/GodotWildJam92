@@ -20,7 +20,7 @@ func spawn(room: RoomRect) -> void:
 	
 
 func reset() -> void:
-	if is_instance_valid(current_enemy):
+	if is_instance_valid(current_enemy) and current_enemy:
 		current_enemy.active = false
 		if is_inside_tree():
 			# TODO: Poof effect on enemy position before despawning?
