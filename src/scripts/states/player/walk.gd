@@ -39,7 +39,11 @@ func update(_delta: float) -> void:
 	
 	if parent.direction == Vector2.ZERO:
 		switch_state.emit(self, "idle")
-		
+	
+	if Input.is_action_just_pressed("pickup") && !parent.is_holding_ingredient:
+		parent.pickup_ingredient()
+	if Input.is_action_just_pressed("pickup") && parent.is_holding_ingredient:
+		parent.drop_ingredient()
 
 func exit() -> void:
 	animation_player.speed_scale = 1.0

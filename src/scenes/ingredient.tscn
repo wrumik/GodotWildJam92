@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dmqdk3br6fx15"]
+
+[ext_resource type="Script" uid="uid://fore6jk8qiih" path="res://src/scripts/ingredient.gd" id="1_6plap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6plap"]
+size = Vector2(16, 16)
+
+[node name="Ingredient" type="StaticBody2D" unique_id=1830856858]
+script = ExtResource("1_6plap")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1981545261]
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1425922788]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_6plap")

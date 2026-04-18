@@ -116,6 +116,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InteractionCast:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InteractionCast:target_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 16)]
+}
 
 [sub_resource type="Animation" id="Animation_oqeln"]
 resource_name = "idle_down"
@@ -284,6 +308,30 @@ tracks/1/keys = {
 "method": &"play_step_sound"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InteractionCast:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("InteractionCast:target_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 16)]
+}
 
 [sub_resource type="Animation" id="Animation_oc5sv"]
 resource_name = "walk_left"
@@ -318,6 +366,30 @@ tracks/1/keys = {
 "args": [],
 "method": &"play_step_sound"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InteractionCast:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5, -3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("InteractionCast:target_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_a8rxs"]
@@ -354,6 +426,30 @@ tracks/1/keys = {
 "method": &"play_step_sound"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InteractionCast:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, -3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("InteractionCast:target_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ubabj"]
 resource_name = "walk_up"
@@ -388,6 +484,30 @@ tracks/1/keys = {
 "args": [],
 "method": &"play_step_sound"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InteractionCast:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("InteractionCast:target_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5o8ya"]
@@ -484,6 +604,13 @@ metadata/_custom_type_script = "uid://fdnwdcl5045a"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1321218661]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_a8rxs")
+
+[node name="IngredientPosition" type="Node2D" parent="." unique_id=2080749803]
+position = Vector2(0, -16)
+
+[node name="InteractionCast" type="RayCast2D" parent="." unique_id=618389659]
+position = Vector2(0, -1)
+target_position = Vector2(0, 16)
 
 [connection signal="animation_finished" from="HitEffect" to="." method="_on_hit_effect_animation_finished"]
 [connection signal="damage_taken" from="HurtBox" to="." method="_on_hurt_box_damage_taken"]

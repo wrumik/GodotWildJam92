@@ -17,3 +17,8 @@ func update(_delta: float) -> void:
 		switch_states("attack")
 	if parent.direction:
 		switch_states("walk")
+	
+	if Input.is_action_just_pressed("pickup") && !parent.is_holding_ingredient:
+		parent.pickup_ingredient()
+	if Input.is_action_just_pressed("pickup") && parent.is_holding_ingredient:
+		parent.drop_ingredient()

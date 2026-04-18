@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://bmjpjcydhm7dt" path="res://src/scenes/enemies/enemy_holder.tscn" id="11_24j03"]
 [ext_resource type="PackedScene" uid="uid://cj541qp11kaub" path="res://src/scenes/button.tscn" id="13_kbdt0"]
 [ext_resource type="PackedScene" uid="uid://b4x27exealnwn" path="res://src/scenes/gate.tscn" id="14_4rjby"]
+[ext_resource type="PackedScene" uid="uid://dmqdk3br6fx15" path="res://src/scenes/ingredient.tscn" id="17_yk6rd"]
+[ext_resource type="Texture2D" uid="uid://by1glxoccg333" path="res://src/sprites/cherry.png" id="18_htxff"]
 
 [sub_resource type="Gradient" id="Gradient_5lsyw"]
 offsets = PackedFloat32Array(0.41904762, 0.54285717, 0.9047619)
@@ -34,12 +36,6 @@ texture = SubResource("GradientTexture2D_kokaf")
 
 [sub_resource type="TileSet" id="TileSet_24j03"]
 sources/0 = SubResource("TileSetAtlasSource_lp058")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_50ugh"]
-resource_local_to_scene = true
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcp4o"]
-resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yk6rd"]
 resource_local_to_scene = true
@@ -66,6 +62,12 @@ resource_local_to_scene = true
 resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxm0n"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sd1y"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_am227"]
 resource_local_to_scene = true
 
 [node name="Main" type="Node2D" unique_id=1339752343]
@@ -176,7 +178,7 @@ script = ExtResource("5_dbro3")
 position = Vector2(288, 160)
 
 [node name="RoomShape" parent="Rooms/Temple/Area2D" parent_id_path=PackedInt32Array(857525345, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_50ugh")
+shape = SubResource("RectangleShape2D_yk6rd")
 
 [node name="SecretArea" parent="Rooms" unique_id=159630187 instance=ExtResource("6_2lg1k")]
 
@@ -187,7 +189,7 @@ position = Vector2(304, 0)
 position = Vector2(592, 160)
 
 [node name="RoomShape" parent="Rooms/SecretArea/Area2D" parent_id_path=PackedInt32Array(159630187, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_lcp4o")
+shape = SubResource("RectangleShape2D_htxff")
 
 [node name="Outside" parent="Rooms" unique_id=43439420 instance=ExtResource("6_2lg1k")]
 
@@ -198,7 +200,7 @@ position = Vector2(-176, 160)
 position = Vector2(368, 544)
 
 [node name="RoomShape" parent="Rooms/Outside/Area2D" parent_id_path=PackedInt32Array(43439420, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_yk6rd")
+shape = SubResource("RectangleShape2D_v252j")
 
 [node name="Outside2" parent="Rooms" unique_id=1783096130 instance=ExtResource("6_2lg1k")]
 
@@ -209,7 +211,7 @@ position = Vector2(-432, 544)
 position = Vector2(-48, 704)
 
 [node name="RoomShape" parent="Rooms/Outside2/Area2D" parent_id_path=PackedInt32Array(1783096130, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_htxff")
+shape = SubResource("RectangleShape2D_qsm7c")
 
 [node name="Outside3" parent="Rooms" unique_id=1495381764 instance=ExtResource("6_2lg1k")]
 
@@ -220,7 +222,7 @@ position = Vector2(-816, 288)
 position = Vector2(-432, 704)
 
 [node name="RoomShape" parent="Rooms/Outside3/Area2D" parent_id_path=PackedInt32Array(1495381764, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_v252j")
+shape = SubResource("RectangleShape2D_n75dp")
 
 [node name="EnemyHolder" parent="Rooms/Outside3/RoomObjects" parent_id_path=PackedInt32Array(1495381764, 1075803513) index="0" unique_id=1555743410 instance=ExtResource("11_24j03")]
 position = Vector2(-528, 560)
@@ -239,7 +241,7 @@ position = Vector2(-1168, 288)
 position = Vector2(-816, 592)
 
 [node name="RoomShape" parent="Rooms/PuzzleRoom/Area2D" parent_id_path=PackedInt32Array(791779921, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_qsm7c")
+shape = SubResource("RectangleShape2D_j04uq")
 
 [node name="EnemyHolder" parent="Rooms/PuzzleRoom/RoomObjects" parent_id_path=PackedInt32Array(791779921, 1075803513) index="0" unique_id=745617790 instance=ExtResource("11_24j03")]
 position = Vector2(-528, 560)
@@ -258,7 +260,7 @@ position = Vector2(-1200, 128)
 position = Vector2(-176, 288)
 
 [node name="RoomShape" parent="Rooms/Outside4/Area2D" parent_id_path=PackedInt32Array(1448106018, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_n75dp")
+shape = SubResource("RectangleShape2D_tyryd")
 
 [node name="EnemyHolder" parent="Rooms/Outside4/RoomObjects" parent_id_path=PackedInt32Array(1448106018, 1075803513) index="0" unique_id=463250404 instance=ExtResource("11_24j03")]
 position = Vector2(-528, 560)
@@ -277,7 +279,7 @@ position = Vector2(-1168, -808)
 position = Vector2(0, 160)
 
 [node name="RoomShape" parent="Rooms/TreeMaze/Area2D" parent_id_path=PackedInt32Array(875321023, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_j04uq")
+shape = SubResource("RectangleShape2D_tx8mq")
 
 [node name="Dungeon" parent="Rooms" unique_id=913753963 instance=ExtResource("6_2lg1k")]
 
@@ -288,7 +290,7 @@ position = Vector2(160, 544)
 position = Vector2(464, 720)
 
 [node name="RoomShape" parent="Rooms/Dungeon/Area2D" parent_id_path=PackedInt32Array(913753963, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_tyryd")
+shape = SubResource("RectangleShape2D_xxm0n")
 
 [node name="EnemyHolder" parent="Rooms/Dungeon/RoomObjects" parent_id_path=PackedInt32Array(913753963, 1075803513) index="0" unique_id=1334183336 instance=ExtResource("11_24j03")]
 position = Vector2(264, 640)
@@ -303,7 +305,7 @@ position = Vector2(-1424, 16)
 position = Vector2(-1200, 448)
 
 [node name="RoomShape" parent="Rooms/Dungeon2/Area2D" parent_id_path=PackedInt32Array(636305419, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_tx8mq")
+shape = SubResource("RectangleShape2D_2sd1y")
 
 [node name="EnemyHolder" parent="Rooms/Dungeon2/RoomObjects" parent_id_path=PackedInt32Array(636305419, 1075803513) index="0" unique_id=313977284 instance=ExtResource("11_24j03")]
 position = Vector2(264, 640)
@@ -318,7 +320,11 @@ position = Vector2(128, -480)
 position = Vector2(544, -128)
 
 [node name="RoomShape" parent="Rooms/Temple2/Area2D" parent_id_path=PackedInt32Array(57928978, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_xxm0n")
+shape = SubResource("RectangleShape2D_am227")
+
+[node name="Ingredient" parent="." unique_id=1830856858 instance=ExtResource("17_yk6rd")]
+position = Vector2(-928, 344)
+ingredient_sprite = ExtResource("18_htxff")
 
 [editable path="Rooms/Temple"]
 [editable path="Rooms/SecretArea"]

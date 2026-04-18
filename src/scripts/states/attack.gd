@@ -6,6 +6,10 @@ func enter() -> void:
 		switch_states("idle")
 		return
 	
+	if parent.is_holding_ingredient:
+		switch_states("idle")
+		return
+	
 	var last_direction = parent.last_direction
 	
 	if last_direction.x > 0:

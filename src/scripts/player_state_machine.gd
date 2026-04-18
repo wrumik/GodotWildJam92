@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var left_collision_check: RayCast2D = $LeftCollisionCheck
 @onready var right_collision_check: RayCast2D = $RightCollisionCheck
 @onready var up_collision_check: ShapeCast2D = $UpCollisionCheck
+@onready var interaction_cast: RayCast2D = $InteractionCast
 
 @export var initial_state: State
 
@@ -21,6 +22,9 @@ var direction: Vector2 = Vector2.ZERO
 var last_direction: Vector2 = Vector2.DOWN
 
 var item_instance: Item = null
+
+var is_holding_ingredient: bool = false
+var held_ingredient: Ingredient
 
 var keys: int = 0
 
@@ -66,6 +70,9 @@ func _physics_process(delta: float) -> void:
 	current_state.physics_update(delta)
 	
 	global_position = global_position.move_toward(target_position, speed * delta)
+	
+	if held_ingredient:
+		held_ingredient.global_position = $IngredientPosition.global_position
 
 
 func play_step_sound():
@@ -98,6 +105,22 @@ func grab_item(item: ItemResource):
 	item_instance.picked_up()
 	
 	PlayerUI.set_can_attack(item.item_type == ItemResource.item_types.WEAPON)
+
+
+func pickup_ingredient():
+	if interaction_cast.get_collider() is not Ingredient:
+		return
+	
+	is_holding_ingredient = true
+	held_ingredient = interaction_cast.get_collider()
+
+func drop_ingredient():
+	if interaction_cast.is_colliding():
+		return
+	
+	is_holding_ingredient = false
+	held_ingredient.global_position = interaction_cast.global_position + interaction_cast.target_position * 2
+	held_ingredient = null
 
 
 func _on_hurt_box_damage_taken(_amount: int) -> void:
