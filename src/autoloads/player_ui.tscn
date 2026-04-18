@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dh5j1i4pofm18"]
 
-[ext_resource type="Script" path="res://src/autoloads/player_ui.gd" id="1_b3mhi"]
+[ext_resource type="Script" uid="uid://cmmni0rqkkam" path="res://src/autoloads/player_ui.gd" id="1_b3mhi"]
 [ext_resource type="Shader" uid="uid://bukwrok3oxu7x" path="res://src/shaders/LightCRT.gdshader" id="2_b3mhi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7bq4i"]
@@ -46,6 +46,27 @@ theme_override_constants/margin_bottom = 5
 [node name="Label" type="Label" parent="Control/VBoxContainer/AttackInstruction" unique_id=1844679453]
 layout_mode = 2
 text = "Attack: J"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1742469971]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="KeyLayout" type="HBoxContainer" parent="Control/MarginContainer" unique_id=37678014]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 2
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=316342463]
 material = SubResource("ShaderMaterial_7bq4i")

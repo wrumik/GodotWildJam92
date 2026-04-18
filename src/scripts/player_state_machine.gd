@@ -26,7 +26,10 @@ var item_instance: Item = null
 var is_holding_ingredient: bool = false
 var held_ingredient: Ingredient
 
-var keys: int = 0
+var keys: int = 0:
+	set(value):
+		keys = value
+		PlayerUI.update_keys(keys)
 
 var teleporting: bool = false
 
