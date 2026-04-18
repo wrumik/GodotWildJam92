@@ -6,7 +6,6 @@ extends Area2D
 
 
 func _on_body_entered(_body: Node2D) -> void:
-	print("entered")
 	affected_node.call_deferred("activate")
 	sprite_2d.frame = 1
 

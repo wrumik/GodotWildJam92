@@ -10,6 +10,9 @@ func enter() -> void:
 		animation_player.play("idle_left")
 	if "_right" in animation_player.current_animation:
 		animation_player.play("idle_right")
+	
+	if parent.is_holding_ingredient:
+		animation_player.play("idle_down_ingredient")
 
 
 func update(_delta: float) -> void:
@@ -21,4 +24,5 @@ func update(_delta: float) -> void:
 	if Input.is_action_just_pressed("pickup") && !parent.is_holding_ingredient:
 		parent.pickup_ingredient()
 	if Input.is_action_just_pressed("pickup") && parent.is_holding_ingredient:
-		parent.drop_ingredient()
+		if parent.drop_ingredient():
+			animation_player.play("idle_down")

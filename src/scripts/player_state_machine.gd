@@ -92,7 +92,10 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 #item related functions
 func grab_item(item: ItemResource):
+	$NewItem.texture = item.icon
+	current_state.switch_states("ItemGet")
 	SoundManager.play_sfx(Sounds.GAIN_ITEM)
+	
 	if item.item_type == ItemResource.item_types.UPGRADE:
 		var temp_item: Item = item.item_scene.instantiate()
 		add_child(temp_item)
@@ -119,16 +122,20 @@ func pickup_ingredient():
 	if interaction_cast.get_collider() is not Ingredient:
 		return
 	
+	#$NewItem.texture = interaction_cast.get_collider().ingredient_sprite
+	#current_state.switch_states("ItemGet")
+	SoundManager.play_sfx(Sounds.GAIN_ITEM)
 	is_holding_ingredient = true
 	held_ingredient = interaction_cast.get_collider()
 
-func drop_ingredient():
+func drop_ingredient() -> bool:
 	if interaction_cast.is_colliding():
-		return
+		return false
 	
 	is_holding_ingredient = false
 	held_ingredient.global_position = interaction_cast.global_position + interaction_cast.target_position * 2
 	held_ingredient = null
+	return true
 
 
 func _on_hurt_box_damage_taken(_amount: int) -> void:

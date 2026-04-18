@@ -4,34 +4,48 @@ extends State
 func physics_update(_delta: float) -> void:
 	var direction = parent.direction
 	var can_move: bool = parent.global_position == parent.target_position
+	var anim: String = "walk_"
 	
 	if direction.x > 0 && can_move:
-		animation_player.play("walk_right")
+		anim += "right"
+		if parent.is_holding_ingredient:
+			anim += "_ingredient"
 		if !parent.right_collision_check.is_colliding():
 			parent.target_position.x += 8
 		else:
 			collided_with(parent.right_collision_check.get_collider())
 	elif direction.x < 0 && can_move:
-		animation_player.play("walk_left")
+		anim += "left"
+		if parent.is_holding_ingredient:
+			anim += "_ingredient"
 		if !parent.left_collision_check.is_colliding():
 			parent.target_position.x -= 8
 		else:
 			collided_with(parent.left_collision_check.get_collider())
 	elif direction.y > 0 && can_move:
-		animation_player.play("walk_down")
+		anim += "down"
+		if parent.is_holding_ingredient:
+			anim += "_ingredient"
 		if !parent.down_collision_check.is_colliding():
 			parent.target_position.y += 8
 		else:
 			for id in parent.down_collision_check.get_collision_count():
 				collided_with(parent.down_collision_check.get_collider(id))
 	elif direction.y < 0 && can_move:
-		animation_player.play("walk_up")
+		anim += "up"
+		if parent.is_holding_ingredient:
+			anim += "_ingredient"
 		if !parent.up_collision_check.is_colliding():
 			parent.target_position.y -= 8
 		else:
 			for id in parent.up_collision_check.get_collision_count():
 				collided_with(parent.up_collision_check.get_collider(id))
+	
+	if can_move:
+		if animation_player.has_animation(anim):
+			animation_player.play(anim)
 	animation_player.speed_scale = remap(parent.speed, parent.base_speed, parent.speed + 1, 1.0, 1.3)
+	
 
 func update(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):

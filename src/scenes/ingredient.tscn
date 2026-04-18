@@ -14,3 +14,30 @@ offset = Vector2(0, -8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1425922788]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_6plap")
+
+[node name="Interaction" type="Node2D" parent="." unique_id=111567440]
+
+[node name="Area" type="Area2D" parent="Interaction" unique_id=1838029072]
+unique_name_in_owner = true
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Interaction/Area" unique_id=582394921]
+position = Vector2(0, -8)
+polygon = PackedVector2Array(8, 8, 16, 8, 16, -8, 8, -8, 8, -16, -8, -16, -8, -8, -16, -8, -16, 8, -8, 8, -8, 16, 8, 16)
+
+[node name="Label" type="Label" parent="Interaction" unique_id=710286022]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -31.0
+offset_right = 27.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pick Up: "
+horizontal_alignment = 1

@@ -18,7 +18,3 @@ func use():
 		attack_direction = Vector2.UP
 	SoundManager.play_sfx(Sounds.SWORD_SWOOSH)
 	$RotatingMeleeAttack.try_attack_dir(attack_direction)
-	
-
-func _on_attack_range_body_entered(body: Node2D) -> void:
-	print(body)

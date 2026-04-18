@@ -5,7 +5,7 @@ signal switch_state(old_state: State, new_state_name: String)
 
 # these don't have to be assigned manually if the state machine assings those when appending to dict
 @export var animation_player: AnimationPlayer
-@export var parent: Node2D
+@export var parent: PlayerStateMachine
 
 func enter() -> void:
 	pass
