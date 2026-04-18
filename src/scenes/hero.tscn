@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cq1dwvwgl41wp" path="res://src/scripts/states/player/idle.gd" id="2_qi43m"]
 [ext_resource type="Script" uid="uid://dxsrt2qxhsd4o" path="res://src/scripts/states/player/walk.gd" id="3_dwb8i"]
 [ext_resource type="Script" uid="uid://fwhifp3rfxfw" path="res://src/scripts/states/attack.gd" id="4_7t2mr"]
-[ext_resource type="Shader" uid="uid://bqx2ujp78ykvh" path="res://src/shaders/hit.gdshader" id="5_a8rxs"]
+[ext_resource type="Shader" path="res://src/shaders/hit.gdshader" id="5_a8rxs"]
 [ext_resource type="Script" uid="uid://fdnwdcl5045a" path="res://src/scripts/hurt_box.gd" id="6_oc5sv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ubabj"]

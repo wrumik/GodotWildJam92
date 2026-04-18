@@ -100,6 +100,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BoxSprite:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_gywrx"]
 resource_name = "drop"
@@ -185,9 +197,9 @@ tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(3.4822013, 1),
+"transitions": PackedFloat32Array(3.5, 1),
 "update": 0,
-"values": [Vector2(0, -34), Vector2(0, 0)]
+"values": [Vector2(0, -16), Vector2(0, 0)]
 }
 tracks/7/type = "method"
 tracks/7/imported = false
@@ -202,6 +214,18 @@ tracks/7/keys = {
 "args": [],
 "method": &"check_spawn_pos"
 }]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BoxSprite:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(3, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7e4rp"]

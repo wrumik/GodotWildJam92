@@ -3,13 +3,13 @@
 [ext_resource type="TileSet" uid="uid://bed4r18biqbpx" path="res://src/resources/tile_set.tres" id="1_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://bpi7iy00k470i" path="res://src/scenes/hero.tscn" id="1_kkvs4"]
 [ext_resource type="Script" uid="uid://dvyh2cdhfxf3j" path="res://src/scripts/navigation_layer.gd" id="1_kokaf"]
-[ext_resource type="PackedScene" uid="uid://bryvahlct4puu" path="res://src/scenes/ground_item.tscn" id="2_2lg1k"]
+[ext_resource type="PackedScene" path="res://src/scenes/ground_item.tscn" id="2_2lg1k"]
 [ext_resource type="Resource" uid="uid://drmndob5m7fta" path="res://src/resources/sword_item.tres" id="3_5lsyw"]
 [ext_resource type="Resource" uid="uid://byeli4ccyvyv7" path="res://src/resources/shoes_item.tres" id="4_5lsyw"]
 [ext_resource type="Script" uid="uid://7utyh8crv6yk" path="res://src/scripts/rooms.gd" id="5_dbro3"]
 [ext_resource type="PackedScene" uid="uid://dh4b30n6lfsqb" path="res://src/scenes/room_rect.tscn" id="6_2lg1k"]
 [ext_resource type="Resource" uid="uid://ty05coowvrw3" path="res://src/resources/key.tres" id="7_ccybt"]
-[ext_resource type="Script" uid="uid://dhsd1h5vjja1y" path="res://src/scripts/map_objects.gd" id="8_ccybt"]
+[ext_resource type="Script" path="res://src/scripts/map_objects.gd" id="8_ccybt"]
 [ext_resource type="PackedScene" uid="uid://cp6dkulh4n2b1" path="res://src/scenes/objects/staircase.tscn" id="9_50ugh"]
 [ext_resource type="PackedScene" uid="uid://3ty7xnxylxbt" path="res://src/scenes/pushable_box.tscn" id="9_kokaf"]
 [ext_resource type="PackedScene" uid="uid://brndi6l01vp4b" path="res://src/scenes/enemies/cloaked_enemy.tscn" id="10_lp058"]
@@ -214,7 +214,7 @@ shape = SubResource("RectangleShape2D_htxff")
 [node name="Outside3" parent="Rooms" unique_id=1495381764 instance=ExtResource("6_2lg1k")]
 
 [node name="Corner1" parent="Rooms/Outside3" index="0" unique_id=761166111]
-position = Vector2(-816, 368)
+position = Vector2(-816, 288)
 
 [node name="Corner2" parent="Rooms/Outside3" index="1" unique_id=1252245146]
 position = Vector2(-432, 704)
@@ -255,7 +255,7 @@ enemy_to_spawn = ExtResource("10_lp058")
 position = Vector2(-1200, 128)
 
 [node name="Corner2" parent="Rooms/Outside4" index="1" unique_id=1252245146]
-position = Vector2(-176, 368)
+position = Vector2(-176, 288)
 
 [node name="RoomShape" parent="Rooms/Outside4/Area2D" parent_id_path=PackedInt32Array(1448106018, 1455719450) index="0" unique_id=408389936]
 shape = SubResource("RectangleShape2D_n75dp")
