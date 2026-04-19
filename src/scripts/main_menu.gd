@@ -84,3 +84,7 @@ func _on_back_button_pressed():
 		animation_player.play("options_menu_close")
 	if is_credit_menu_open:
 		animation_player.play("credits_menu_close")
+
+
+func _ready() -> void:
+	PlayerUI.in_game = false

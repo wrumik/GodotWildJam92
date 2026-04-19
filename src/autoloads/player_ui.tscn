@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dh5j1i4pofm18"]
 
 [ext_resource type="Script" uid="uid://cmmni0rqkkam" path="res://src/autoloads/player_ui.gd" id="1_b3mhi"]
+[ext_resource type="PackedScene" uid="uid://cmp05cufd0qcv" path="res://src/scenes/heart_container.tscn" id="2_7bq4i"]
 [ext_resource type="Shader" uid="uid://bukwrok3oxu7x" path="res://src/shaders/LightCRT.gdshader" id="2_b3mhi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7bq4i"]
@@ -67,6 +68,29 @@ theme_override_constants/margin_bottom = 5
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control" unique_id=514389156]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 16.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Hearts" type="HBoxContainer" parent="Control/MarginContainer2" unique_id=1971806290]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HeartContainer" parent="Control/MarginContainer2/Hearts" unique_id=792526226 instance=ExtResource("2_7bq4i")]
+layout_mode = 2
+
+[node name="HeartContainer2" parent="Control/MarginContainer2/Hearts" unique_id=674974170 instance=ExtResource("2_7bq4i")]
+layout_mode = 2
+
+[node name="HeartContainer3" parent="Control/MarginContainer2/Hearts" unique_id=1838753910 instance=ExtResource("2_7bq4i")]
+layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=316342463]
 material = SubResource("ShaderMaterial_7bq4i")

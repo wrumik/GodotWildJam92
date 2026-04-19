@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cmp05cufd0qcv"]
+
+[ext_resource type="Texture2D" uid="uid://cj1lr4bobx7tm" path="res://src/sprites/heart_ui.png" id="1_35fh1"]
+[ext_resource type="Script" uid="uid://nj73afhsiwvu" path="res://src/scenes/heart_container.gd" id="1_j5t2a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27abt"]
+resource_local_to_scene = true
+atlas = ExtResource("1_35fh1")
+region = Rect2(32, 0, 16, 16)
+
+[node name="HeartContainer" type="TextureRect" unique_id=792526226]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_27abt")
+stretch_mode = 2
+script = ExtResource("1_j5t2a")

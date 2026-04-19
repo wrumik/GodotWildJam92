@@ -921,7 +921,7 @@ max_results = 5
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("6_oc5sv")
-max_health = 5
+max_health = 6
 metadata/_custom_type_script = "uid://fdnwdcl5045a"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1321218661]
@@ -936,5 +936,6 @@ position = Vector2(0, -1)
 target_position = Vector2(0, 16)
 
 [connection signal="animation_finished" from="HitEffect" to="." method="_on_hit_effect_animation_finished"]
+[connection signal="damage_healed" from="HurtBox" to="." method="_on_hurt_box_damage_healed"]
 [connection signal="damage_taken" from="HurtBox" to="." method="_on_hurt_box_damage_taken"]
 [connection signal="destroyed" from="HurtBox" to="." method="_on_hurt_box_destroyed"]

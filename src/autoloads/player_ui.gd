@@ -1,5 +1,10 @@
 extends CanvasLayer
 
+var in_game: bool = false:
+	set(value):
+		in_game = value
+		%Hearts.visible = in_game
+
 
 func _ready() -> void:
 	set_can_attack(false)
@@ -24,4 +29,25 @@ func update_keys(amount: int) -> void:
 		rect.material = ShaderMaterial.new()
 		rect.material.shader = preload("res://src/shaders/outline.gdshader")
 		%KeyLayout.add_child(rect)
-		
+	
+	
+func update_max_health(new_max: int) -> void:
+	for c in %Hearts.get_children():
+		c.queue_free()
+	
+	var heart_scn = preload("res://src/scenes/heart_container.tscn")
+	for x in round(float(new_max) / 2):
+		%Hearts.add_child(heart_scn.instantiate())
+
+
+func set_health(health: int) -> void:
+	var count = health
+	for c in %Hearts.get_children():
+		if count >= 2:
+			c.state = HeartContainer.HeartState.FULL
+			count -= 2
+		elif count == 1:
+			c.state = HeartContainer.HeartState.HALF
+			count -= 1
+		else:
+			c.state = HeartContainer.HeartState.EMPTY

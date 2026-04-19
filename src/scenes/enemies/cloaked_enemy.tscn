@@ -180,6 +180,7 @@ animator = NodePath("Animator")
 
 [node name="HurtBox" parent="." index="0" unique_id=334642380]
 position = Vector2(0, -2)
+max_health = 3
 
 [node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=1415210236]
 position = Vector2(0, 2)

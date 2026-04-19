@@ -88,6 +88,9 @@ script = ExtResource("2_0kcbe")
 attack_range = 80
 min_target_dist = 30
 
+[node name="HurtBox" parent="." index="0" unique_id=334642380]
+max_health = 2
+
 [node name="GridMover" parent="." index="2" unique_id=1553690740]
 move_speed = 20.0
 
@@ -116,3 +119,5 @@ unique_name_in_owner = true
 [node name="ShootCooldown" type="Timer" parent="." index="9" unique_id=1509642620]
 wait_time = 1.7999999999999998
 one_shot = true
+
+[editable path="HurtBox"]

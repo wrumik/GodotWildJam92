@@ -38,7 +38,7 @@ var teleporting: bool = false
 
 # state machine related functions
 func _ready() -> void:
-	
+	PlayerUI.update_max_health($HurtBox.max_health)
 	target_position = global_position
 	
 	current_state = initial_state
@@ -48,7 +48,9 @@ func _ready() -> void:
 		state.switch_state.connect(change_state)
 		state.animation_player = animation_player
 		state.parent = self
-
+	
+	await get_tree().physics_frame
+	PlayerUI.set_health($HurtBox.max_health)
 
 ## changes the state of the character use switch_states(new_state_name: String) function
 ## or switch_state(old_state: State, new_state_name: String) signal
@@ -136,6 +138,8 @@ func drop_ingredient() -> bool:
 		interaction_cast.get_collider().collect_ingredient(held_ingredient)
 		is_holding_ingredient = false
 		held_ingredient.queue_free()
+		# Full heal when dropping into cauldron
+		$HurtBox.heal($HurtBox.max_health - $HurtBox.current_health)
 		return true
 	
 	if interaction_cast.is_colliding() && interaction_cast.get_collider() is not Cauldron:
@@ -150,6 +154,10 @@ func drop_ingredient() -> bool:
 
 func _on_hurt_box_damage_taken(_amount: int) -> void:
 	%HitEffect.play.call_deferred("hit")
+	PlayerUI.set_health($HurtBox.current_health)
+
+func _on_hurt_box_damage_healed(_amount: int) -> void:
+	PlayerUI.set_health($HurtBox.current_health)
 
 
 func _on_hurt_box_destroyed() -> void:

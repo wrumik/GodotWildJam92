@@ -88,3 +88,7 @@ func attack() -> void:
 	if $RotatingMeleeAttack.try_attack(target.global_position):
 		if animator:
 			animator.play_attack()
+
+
+func _on_hurt_box_damage_taken(_amount: int) -> void:
+	%HitEffect.play("hit")
