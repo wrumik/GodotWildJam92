@@ -5,9 +5,9 @@
 [ext_resource type="Script" uid="uid://cq1dwvwgl41wp" path="res://src/scripts/states/player/idle.gd" id="2_qi43m"]
 [ext_resource type="Script" uid="uid://dxsrt2qxhsd4o" path="res://src/scripts/states/player/walk.gd" id="3_dwb8i"]
 [ext_resource type="Script" uid="uid://fwhifp3rfxfw" path="res://src/scripts/states/attack.gd" id="4_7t2mr"]
-[ext_resource type="Shader" uid="uid://bqx2ujp78ykvh" path="res://src/shaders/hit.gdshader" id="5_a8rxs"]
-[ext_resource type="Script" uid="uid://bfsge7t34vxq1" path="res://src/scripts/states/player/item_get.gd" id="5_ubabj"]
-[ext_resource type="Shader" uid="uid://qq5snrfdqvkr" path="res://src/shaders/outline.gdshader" id="6_7b3r1"]
+[ext_resource type="Shader" path="res://src/shaders/hit.gdshader" id="5_a8rxs"]
+[ext_resource type="Script" path="res://src/scripts/states/player/item_get.gd" id="5_ubabj"]
+[ext_resource type="Shader" path="res://src/shaders/outline.gdshader" id="6_7b3r1"]
 [ext_resource type="Script" uid="uid://fdnwdcl5045a" path="res://src/scripts/hurt_box.gd" id="6_oc5sv"]
 [ext_resource type="Texture2D" uid="uid://b312fscnadjj5" path="res://src/sprites/key.png" id="7_oqeln"]
 

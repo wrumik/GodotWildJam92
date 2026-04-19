@@ -127,13 +127,23 @@ func pickup_ingredient():
 	SoundManager.play_sfx(Sounds.GAIN_ITEM)
 	is_holding_ingredient = true
 	held_ingredient = interaction_cast.get_collider()
+	held_ingredient.collider.disabled = true
 
 func drop_ingredient() -> bool:
-	if interaction_cast.is_colliding():
+	#collect ingredient to cauldron
+	if interaction_cast.get_collider() is Cauldron:
+		interaction_cast.get_collider().collected_ingredient()
+		is_holding_ingredient = false
+		held_ingredient.queue_free()
+		GameData.ingredients_collected += 1
+		return true
+	
+	if interaction_cast.is_colliding() && interaction_cast.get_collider() is not Cauldron:
 		return false
 	
 	is_holding_ingredient = false
-	held_ingredient.global_position = interaction_cast.global_position + interaction_cast.target_position * 2
+	held_ingredient.global_position = interaction_cast.global_position + interaction_cast.target_position * 1.5
+	held_ingredient.collider.disabled = false
 	held_ingredient = null
 	return true
 

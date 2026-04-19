@@ -2,8 +2,8 @@ class_name Ingredient
 extends StaticBody2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
-
 @export var ingredient_sprite: Texture2D
+@onready var collider: CollisionShape2D = $CollisionShape2D
 
 
 func _ready() -> void:
