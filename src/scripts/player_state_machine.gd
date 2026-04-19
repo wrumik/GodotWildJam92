@@ -139,7 +139,7 @@ func drop_ingredient() -> bool:
 
 
 func _on_hurt_box_damage_taken(_amount: int) -> void:
-	%HitEffect.play("hit")
+	%HitEffect.play.call_deferred("hit")
 
 
 func _on_hurt_box_destroyed() -> void:

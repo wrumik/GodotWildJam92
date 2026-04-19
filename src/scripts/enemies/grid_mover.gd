@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	if can_move:
 		current_target += direction * grid_size
 	
-	#body.global_position = body.global_position.move_toward(current_target, move_speed * delta)
+	body.global_position = body.global_position.move_toward(current_target, move_speed * delta)
 
 
 static func dir_to_cardinal(dir: Vector2) -> Vector2i:

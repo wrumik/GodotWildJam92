@@ -85,6 +85,7 @@ func get_navigation_path(from_global: Vector2, target_global: Vector2) -> Packed
 		return []
 	
 	var local_start = round((from_global - Vector2(8, 8)) / navigation_grid.cell_size)
-	var local_end = round((target_global - Vector2(8, 8)) / navigation_grid.cell_size)
+	var local_end: Vector2 = round((target_global - Vector2(8, 8)) / navigation_grid.cell_size)
+	local_end = local_end.clamp(bounds.position, bounds.end)
 	var points = navigation_grid.get_point_path(local_start, local_end, true)
 	return points

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c85vn5vyxqud0" path="res://src/scripts/main_menu.gd" id="1_rm437"]
 [ext_resource type="PackedScene" uid="uid://bv8jm1hnpuied" path="res://src/util/pause_menu.tscn" id="2_mob6k"]
+[ext_resource type="Texture2D" uid="uid://dxdnjto5md3xs" path="res://src/sprites/main_menu_small.png" id="2_rkeyg"]
 
 [node name="MainMenu" type="Control" unique_id=2088319255]
 layout_mode = 3
@@ -12,6 +13,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_rm437")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1503891153]
+layout_mode = 0
+offset_right = 288.0
+offset_bottom = 160.0
+texture = ExtResource("2_rkeyg")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=920408703]
 layout_mode = 1
@@ -59,6 +66,7 @@ mouse_filter = 2
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1561327166]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1807044701 instance=ExtResource("2_mob6k")]
+visible = false
 offset_top = -3.0
 offset_bottom = 3.0
 
