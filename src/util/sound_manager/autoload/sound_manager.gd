@@ -7,7 +7,7 @@ extends Node
 @onready var _ambient_player: AudioStreamPlayer = $AmbientPlayer
 
 var _player_counter = 0
-
+var track_1_playing: bool = true
 
 func _enter_tree():
 	AudioServer.set_bus_layout(load("res://default_bus_layout.tres"))
@@ -54,10 +54,14 @@ func play_music_tracks(track_1: StringName, track_2: StringName) -> void:
 
 
 func switch_music_track(to_1: bool) -> void:
+	if track_1_playing == to_1:
+		return
+		
 	if to_1:
 		$TrackSwitcher.play("switch_to_1")
 	else:
 		$TrackSwitcher.play("switch_to_2")
+	track_1_playing = to_1
 
 
 func stop_music() -> void:

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://brndi6l01vp4b"]
 
 [ext_resource type="PackedScene" uid="uid://cuvjbioye0jd4" path="res://src/scenes/enemies/enemy.tscn" id="1_50pid"]
+[ext_resource type="Shader" uid="uid://bqx2ujp78ykvh" path="res://src/shaders/hit.gdshader" id="2_6wedk"]
 [ext_resource type="Texture2D" uid="uid://c7y37cl67ai1l" path="res://src/sprites/cloaked_figure.png" id="2_07h57"]
 [ext_resource type="Script" uid="uid://dor34jqksk0r6" path="res://src/scenes/enemies/animator.gd" id="3_27s0f"]
 
@@ -9,6 +10,11 @@ size = Vector2(14, 6)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_07h57"]
 radius = 70.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r56tv"]
+resource_local_to_scene = true
+shader = ExtResource("2_6wedk")
+shader_parameter/enabled = false
 
 [sub_resource type="Animation" id="Animation_07h57"]
 length = 0.001
@@ -189,6 +195,9 @@ position = Vector2(0, 2)
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_07h57")
 
+[node name="GridMover" parent="." index="2" unique_id=1553690740]
+move_speed = 45.0
+
 [node name="Vision" parent="." index="3" unique_id=1414328691]
 position = Vector2(0, 4)
 
@@ -196,6 +205,7 @@ position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_07h57")
 
 [node name="Sprite" parent="." index="4" unique_id=1871524328]
+material = SubResource("ShaderMaterial_r56tv")
 texture = ExtResource("2_07h57")
 hframes = 4
 vframes = 4

@@ -2,7 +2,7 @@ class_name Sounds
 extends RefCounted
 
 #MUSIC
-const MUSIC_INSIDE: StringName = "res://src/sound/Main Theme Off 01.wav"
+const MUSIC_INSIDE: StringName = "res://src/sound/Main Theme Leadless.wav"
 const MUSIC_OUTSIDE: StringName = "res://src/sound/Main Theme 01.wav"
 
 #UI SOUNDS
