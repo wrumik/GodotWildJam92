@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ux1lgkuk6mvl"]
+[gd_scene format=3 uid="uid://ux1lgkuk6mvl"]
 
-[ext_resource type="PackedScene" uid="uid://0ompna74v6kb" path="res://Util/SoundManager/volume_slider.tscn" id="1_338k6"]
+[ext_resource type="PackedScene" uid="uid://0ompna74v6kb" path="res://src/util/sound_manager/volume_slider.tscn" id="1_338k6"]
+[ext_resource type="Theme" uid="uid://jdrnoaleaksv" path="res://src/resources/game_theme.tres" id="1_m2gpl"]
 
-[node name="VolumeSettings" type="VBoxContainer"]
+[node name="VolumeSettings" type="VBoxContainer" unique_id=1302001305]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -14,13 +15,14 @@ offset_right = 174.0
 offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_m2gpl")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1646634216]
 layout_mode = 2
 text = "Volume"
 horizontal_alignment = 1
 
-[node name="Master" parent="." instance=ExtResource("1_338k6")]
+[node name="Master" parent="." unique_id=516989874 instance=ExtResource("1_338k6")]
 layout_mode = 2
 bus = &"Master"
 
@@ -31,15 +33,15 @@ custom_minimum_size = Vector2(100, 0)
 step = 1.0
 value = 35.0
 
-[node name="Music" parent="." instance=ExtResource("1_338k6")]
+[node name="Music" parent="." unique_id=2037218298 instance=ExtResource("1_338k6")]
 layout_mode = 2
 bus = &"Music"
 
 [node name="HSlider" parent="Music" index="1"]
 step = 5.0
-value = 15.0
+value = 35.0
 
-[node name="SFX" parent="." instance=ExtResource("1_338k6")]
+[node name="SFX" parent="." unique_id=562448676 instance=ExtResource("1_338k6")]
 layout_mode = 2
 bus = &"SFX"
 

@@ -10,3 +10,9 @@ script = ExtResource("1_ig6gv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=239332683]
 shape = SubResource("RectangleShape2D_k5wqp")
+
+[node name="Unlocks" type="Area2D" parent="." unique_id=1598731753]
+unique_name_in_owner = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Unlocks" unique_id=1410347361]
+polygon = PackedVector2Array(-7, -7, -7, -15, 7, -15, 7, -7, 15, -7, 15, 7, 7, 7, 7, 15, -7, 15, -7, 7, -15, 7, -15, -7)

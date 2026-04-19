@@ -3,12 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://cuvjbioye0jd4" path="res://src/scenes/enemies/enemy.tscn" id="1_e1v7h"]
 [ext_resource type="Texture2D" uid="uid://diu2likk5y3ej" path="res://src/sprites/bee.png" id="2_dxvll"]
 [ext_resource type="Script" uid="uid://c2thjoweqvc3e" path="res://src/scenes/enemies/bee.gd" id="2_sj5cb"]
+[ext_resource type="Shader" uid="uid://bqx2ujp78ykvh" path="res://src/shaders/hit.gdshader" id="3_5wjgc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5wjgc"]
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sj5cb"]
 radius = 88.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xkcmy"]
+resource_local_to_scene = true
+shader = ExtResource("3_5wjgc")
+shader_parameter/enabled = false
 
 [sub_resource type="Animation" id="Animation_xkcmy"]
 length = 0.001
@@ -52,7 +58,7 @@ _data = {
 [node name="Bee" unique_id=2023609171 instance=ExtResource("1_e1v7h")]
 script = ExtResource("2_sj5cb")
 attack_range = 15
-min_target_dist = 10
+min_target_dist = 5
 
 [node name="CollisionShape2D" parent="HurtBox" parent_id_path=PackedInt32Array(334642380) index="0" unique_id=1415210236]
 shape = SubResource("CircleShape2D_5wjgc")
@@ -64,6 +70,7 @@ ignore_grid = true
 shape = SubResource("CircleShape2D_sj5cb")
 
 [node name="Sprite" parent="." index="4" unique_id=1871524328]
+material = SubResource("ShaderMaterial_xkcmy")
 texture = ExtResource("2_dxvll")
 hframes = 2
 

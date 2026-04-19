@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cqfxqrkitsxk4"]
+
+[ext_resource type="Texture2D" uid="uid://c1pm0a2xy3kdy" path="res://src/sprites/effects.png" id="1_6guno"]
+[ext_resource type="Script" uid="uid://bvreda4sejx8a" path="res://src/scenes/explosion.gd" id="2_46upc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvukm"]
+atlas = ExtResource("1_6guno")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbqq6"]
+atlas = ExtResource("1_6guno")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8w08k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvukm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbqq6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Explosion" type="AnimatedSprite2D" unique_id=1863037745]
+z_index = 10
+sprite_frames = SubResource("SpriteFrames_8w08k")
+autoplay = "default"
+script = ExtResource("2_46upc")
+
+[node name="Timer" type="Timer" parent="." unique_id=1155984466]
+wait_time = 0.6
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

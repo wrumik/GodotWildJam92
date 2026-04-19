@@ -138,6 +138,8 @@ position = Vector2(0, -6)
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_36k55")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HitEffect" unique_id=748453923]
+
 [connection signal="damage_taken" from="HurtBox" to="." method="_on_hurt_box_damage_taken"]
 [connection signal="destroyed" from="HurtBox" to="." method="_on_hurt_box_destroyed"]
 

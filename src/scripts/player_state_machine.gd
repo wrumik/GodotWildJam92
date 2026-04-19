@@ -131,6 +131,10 @@ func pickup_ingredient():
 	is_holding_ingredient = true
 	held_ingredient = interaction_cast.get_collider()
 	held_ingredient.collider.disabled = true
+	
+	if held_ingredient is Apple:
+		get_tree().root.get_node("Main").dead.show()
+		get_tree().root.get_node("Main").grown.hide()
 
 func drop_ingredient() -> bool:
 	#collect ingredient to cauldron

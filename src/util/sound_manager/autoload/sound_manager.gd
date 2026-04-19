@@ -49,6 +49,7 @@ func play_music_tracks(track_1: StringName, track_2: StringName) -> void:
 	%Track1.stream = load(track_1)
 	%Track2.stream = load(track_2)
 	
+	await get_tree().create_timer(1.0).timeout
 	%Track1.play()
 	%Track2.play()
 

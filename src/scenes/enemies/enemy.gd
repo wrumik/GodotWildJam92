@@ -40,6 +40,10 @@ func _process(delta: float) -> void:
 
 
 func _on_hurt_box_destroyed() -> void:
+	var x = preload("res://src/scenes/explosion.tscn").instantiate()
+	
+	get_parent().add_child(x)
+	x.global_position = global_position
 	queue_free()
 
 

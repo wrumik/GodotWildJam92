@@ -1,3 +1,52 @@
 [gd_resource type="Theme" format=3 uid="uid://jdrnoaleaksv"]
 
+[ext_resource type="Texture2D" uid="uid://b5kelruvxgo8g" path="res://src/sprites/menu/grabber.png" id="1_iso71"]
+[ext_resource type="Texture2D" uid="uid://r2y5jbbbfh8d" path="res://src/sprites/menu/grabber_disabled.png" id="2_mtmeb"]
+[ext_resource type="Texture2D" uid="uid://xwpqm2a8rsto" path="res://src/sprites/menu/grabber_highlighted.png" id="3_0s06g"]
+
+[sub_resource type="DPITexture" id="DPITexture_2kgop"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"4\" height=\"8\"><path fill=\"#fff\" fill-opacity=\".25\" d=\"M1 0h2v16H1z\"/></svg>
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1v0yq"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.20871013, 0.20871016, 0.20870999, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjt4p"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dych5"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
 [resource]
+HSlider/constants/center_grabber = 0
+HSlider/constants/grabber_offset = 0
+HSlider/constants/tick_offset = 0
+HSlider/icons/grabber = ExtResource("1_iso71")
+HSlider/icons/grabber_disabled = ExtResource("2_mtmeb")
+HSlider/icons/grabber_highlight = ExtResource("3_0s06g")
+HSlider/icons/tick = SubResource("DPITexture_2kgop")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_1v0yq")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_kjt4p")
+HSlider/styles/slider = SubResource("StyleBoxFlat_dych5")
