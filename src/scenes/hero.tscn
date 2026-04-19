@@ -850,7 +850,7 @@ motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_7utag")
 initial_state = NodePath("States/Idle")
-base_speed = 200.0
+base_speed = 100.0
 
 [node name="States" type="Node" parent="." unique_id=756098419]
 
