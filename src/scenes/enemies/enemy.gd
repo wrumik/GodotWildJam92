@@ -15,7 +15,7 @@ var active: bool = false
 		#return
 	#
 	#for p in points:
-		#draw_circle(to_local(p - Vector2(8, 8)), 2, Color.RED)
+		#draw_circle(to_local(p + Vector2(8, 8)), 2, Color.RED)
 
 
 func _physics_process(_delta: float) -> void:
@@ -57,12 +57,23 @@ func move() -> void:
 	if not target or not room:
 		return
 	
-	points = room.get_navigation_path(self.global_position, target.global_position)
-	var dist_sq = self.global_position.distance_squared_to(target.global_position)
+	var temp_points = room.get_navigation_path(self.global_position, target.global_position)
+	points = []
+	for p in temp_points:
+		points.append(p)
+
+	#var dist_sq = self.global_position.distance_squared_to(target.global_position)
+	var first: bool = true
 	for p in points:
-		if p.distance_squared_to(target.global_position) < dist_sq:
-			$GridMover.pick_direction(p)
-			return
+		if first:
+			first = false
+			continue
+		$GridMover.pick_direction(p)
+		return
+		#if p.distance_squared_to(target.global_position) < dist_sq:
+			#print(p, self.global_position)
+			#$GridMover.pick_direction(p)
+			#return
 	#$GridMover.pick_direction(pos)
 
 
@@ -71,8 +82,6 @@ func check_target() -> void:
 		if b is PlayerStateMachine:
 			target = b
 			return
-	
-	#target = null
 
 
 func attack() -> void:

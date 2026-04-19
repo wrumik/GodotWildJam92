@@ -6,6 +6,7 @@ signal room_exited(body: PlayerStateMachine)
 
 @export var inside: bool = true
 
+var nav_layer: TileMapLayer = null
 var navigation_grid: AStarGrid2D = null # :
 	#set(value):
 		#navigation_grid = value
@@ -84,8 +85,22 @@ func get_navigation_path(from_global: Vector2, target_global: Vector2) -> Packed
 	if not bounds.has_point(from_global) or not bounds.has_point(target_global):
 		return []
 	
-	var local_start = round((from_global - Vector2(8, 8)) / navigation_grid.cell_size)
-	var local_end: Vector2 = round((target_global - Vector2(8, 8)) / navigation_grid.cell_size)
-	local_end = local_end.clamp(bounds.position, bounds.end)
+	var local_start = nav_layer.local_to_map(nav_layer.to_local(from_global))
+	var local_end = nav_layer.local_to_map(nav_layer.to_local(target_global))
+	#var local_start = round((from_global - Vector2(8, 8)) / navigation_grid.cell_size)
+	#var local_end: Vector2 = round((target_global - Vector2(8, 8)) / navigation_grid.cell_size)
+	#local_end = local_end.clamp(bounds.position, bounds.end)
 	var points = navigation_grid.get_point_path(local_start, local_end, true)
 	return points
+
+
+func is_in_bounds(global_pos: Vector2) -> bool:
+	return global_bounds().has_point(global_pos)
+	
+	
+func set_solid(global_pos: Vector2, solid: bool = false) -> void:
+	if not is_in_bounds(global_pos):
+		return
+	
+	var cell = nav_layer.local_to_map(nav_layer.to_local(global_pos))
+	navigation_grid.set_point_solid(cell, solid)

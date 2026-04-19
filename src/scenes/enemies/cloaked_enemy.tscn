@@ -179,23 +179,22 @@ _data = {
 animator = NodePath("Animator")
 
 [node name="HurtBox" parent="." index="0" unique_id=334642380]
-position = Vector2(0, -4)
+position = Vector2(0, -2)
 
 [node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=1415210236]
-position = Vector2(0, -2)
+position = Vector2(0, 2)
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=674904886]
-position = Vector2(0, -2)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_07h57")
 
 [node name="Vision" parent="." index="3" unique_id=1414328691]
-position = Vector2(0, -4)
+position = Vector2(0, 4)
 
 [node name="VisionCircle" parent="Vision" index="0" unique_id=1045065274]
 shape = SubResource("CircleShape2D_07h57")
 
 [node name="Sprite" parent="." index="4" unique_id=1871524328]
-position = Vector2(0, -6)
 texture = ExtResource("2_07h57")
 hframes = 4
 vframes = 4
@@ -204,5 +203,8 @@ vframes = 4
 libraries/ = SubResource("AnimationLibrary_cp2kr")
 speed_scale = 1.4
 script = ExtResource("3_27s0f")
+
+[node name="RotatingMeleeAttack" parent="." index="6" unique_id=1064115119]
+position = Vector2(0, 0)
 
 [editable path="HurtBox"]

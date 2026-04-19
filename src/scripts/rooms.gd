@@ -1,3 +1,4 @@
+class_name Rooms
 extends Node2D
 
 ## amount of pixels of movement that is required before the room can be switched again.
@@ -16,6 +17,7 @@ func _ready() -> void:
 		if c is RoomRect:
 			c.room_entered.connect(_on_room_entered.bind(c))
 			c.navigation_grid = %NavigationLayer.create_grid_for_room(c)
+			c.nav_layer = %NavigationLayer
 			c.setup()
 			
 			
@@ -47,3 +49,11 @@ func _on_room_entered(player: PlayerStateMachine, rect: RoomRect) -> void:
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(camera, "offset", Vector2.ZERO, 0.6)
+
+
+func box_moved(from: Vector2i, to: Vector2i) -> void:
+	pass
+	for rect in get_children():
+		if rect is RoomRect:
+			rect.set_solid(from, false)
+			rect.set_solid(to, true)

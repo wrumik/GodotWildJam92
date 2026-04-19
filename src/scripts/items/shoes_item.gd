@@ -2,5 +2,5 @@ extends Item
 
 
 func picked_up():
-	holder.speed += 40
+	holder.add_speed_multiplier("shoes", 1.45)
 	queue_free()

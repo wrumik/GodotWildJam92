@@ -44,7 +44,9 @@ func physics_update(_delta: float) -> void:
 	if can_move:
 		if animation_player.has_animation(anim):
 			animation_player.play(anim)
-	animation_player.speed_scale = remap(parent.speed, parent.base_speed, parent.speed + 1, 1.0, 1.3)
+	
+	animation_player.speed_scale = parent.effective_speed_multiplier()
+	#animation_player.speed_scale = remap(parent.speed, parent.base_speed, parent.speed + 1, 1.0, 1.3)
 	
 
 func update(_delta: float) -> void:

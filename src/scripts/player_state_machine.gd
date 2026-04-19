@@ -14,6 +14,7 @@ extends CharacterBody2D
 @export var base_speed: float = 110
 @export var grass: TileMapLayer = null
 @onready var speed: float = base_speed
+@onready var speed_table: Dictionary[String, float] = {}
 
 var states_dict: Dictionary[String, State]
 var current_state: State
@@ -132,10 +133,9 @@ func pickup_ingredient():
 func drop_ingredient() -> bool:
 	#collect ingredient to cauldron
 	if interaction_cast.get_collider() is Cauldron:
-		interaction_cast.get_collider().collected_ingredient()
+		interaction_cast.get_collider().collect_ingredient(held_ingredient)
 		is_holding_ingredient = false
 		held_ingredient.queue_free()
-		GameData.ingredients_collected += 1
 		return true
 	
 	if interaction_cast.is_colliding() && interaction_cast.get_collider() is not Cauldron:
@@ -154,3 +154,37 @@ func _on_hurt_box_damage_taken(_amount: int) -> void:
 
 func _on_hurt_box_destroyed() -> void:
 	get_tree().reload_current_scene()
+
+
+func add_speed_area(area: SpeedArea) -> void:
+	add_speed_multiplier(area.name, area.speed_reduction_multiplier)	
+	
+
+func remove_speed_area(area: SpeedArea) -> void:
+	remove_speed_multiplier(area.name)
+
+
+func add_speed_multiplier(source: String, value: float) -> void:
+	speed_table[source] = value
+	_update_speed()
+	
+	
+func remove_speed_multiplier(source: String) -> void:
+	speed_table.erase(source)
+	_update_speed()
+
+
+func _update_speed() -> void:
+	speed = base_speed * effective_speed_multiplier()
+
+
+func effective_speed_multiplier() -> float:
+	var mult = 1.0
+	var slowed = false
+	for m in speed_table.values():
+		if m < 1.0 and slowed:
+			continue
+		elif m < 1.0:
+			slowed = true
+		mult *= m
+	return mult

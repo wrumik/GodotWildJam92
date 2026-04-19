@@ -14,6 +14,7 @@ var move_speed: float = 10.0
 var cell_size: int = 16
 
 signal destroyed()
+signal moved(from: Vector2, to: Vector2)
 
 func _ready() -> void:
 	target_position = global_position
@@ -39,7 +40,9 @@ func destroy(attack_direction: Vector2):
 			if cast_down.is_colliding():
 				destroy_box()
 				return
+	var old_pos = target_position
 	target_position += attack_direction * cell_size
+	moved.emit(old_pos, target_position)
 	SoundManager.play_sfx(Sounds.BOX_MOVING, 0.6)
 
 func destroy_box():
