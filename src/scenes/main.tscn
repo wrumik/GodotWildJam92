@@ -3,13 +3,13 @@
 [ext_resource type="TileSet" uid="uid://bed4r18biqbpx" path="res://src/resources/tile_set.tres" id="1_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://bpi7iy00k470i" path="res://src/scenes/hero.tscn" id="1_kkvs4"]
 [ext_resource type="Script" uid="uid://dvyh2cdhfxf3j" path="res://src/scripts/navigation_layer.gd" id="1_kokaf"]
-[ext_resource type="PackedScene" uid="uid://bryvahlct4puu" path="res://src/scenes/ground_item.tscn" id="2_2lg1k"]
+[ext_resource type="PackedScene" path="res://src/scenes/ground_item.tscn" id="2_2lg1k"]
 [ext_resource type="Resource" uid="uid://drmndob5m7fta" path="res://src/resources/sword_item.tres" id="3_5lsyw"]
 [ext_resource type="Resource" uid="uid://byeli4ccyvyv7" path="res://src/resources/shoes_item.tres" id="4_5lsyw"]
 [ext_resource type="Script" uid="uid://7utyh8crv6yk" path="res://src/scripts/rooms.gd" id="5_dbro3"]
 [ext_resource type="PackedScene" uid="uid://dh4b30n6lfsqb" path="res://src/scenes/room_rect.tscn" id="6_2lg1k"]
 [ext_resource type="Resource" uid="uid://ty05coowvrw3" path="res://src/resources/key.tres" id="7_ccybt"]
-[ext_resource type="Script" uid="uid://dhsd1h5vjja1y" path="res://src/scripts/map_objects.gd" id="8_ccybt"]
+[ext_resource type="Script" path="res://src/scripts/map_objects.gd" id="8_ccybt"]
 [ext_resource type="PackedScene" uid="uid://cp6dkulh4n2b1" path="res://src/scenes/objects/staircase.tscn" id="9_50ugh"]
 [ext_resource type="PackedScene" uid="uid://3ty7xnxylxbt" path="res://src/scenes/pushable_box.tscn" id="9_kokaf"]
 [ext_resource type="PackedScene" uid="uid://brndi6l01vp4b" path="res://src/scenes/enemies/cloaked_enemy.tscn" id="10_lp058"]
@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dmqdk3br6fx15" path="res://src/scenes/ingredient.tscn" id="17_yk6rd"]
 [ext_resource type="Texture2D" uid="uid://by1glxoccg333" path="res://src/sprites/cherry.png" id="18_htxff"]
 [ext_resource type="PackedScene" uid="uid://bvmrj326u1xv2" path="res://src/scenes/enemies/snake.tscn" id="18_qsm7c"]
-[ext_resource type="PackedScene" uid="uid://bv8jm1hnpuied" path="res://src/util/pause_menu.tscn" id="19_htxff"]
+[ext_resource type="PackedScene" path="res://src/util/pause_menu.tscn" id="19_htxff"]
 [ext_resource type="Texture2D" uid="uid://cegfcikwsvgnk" path="res://src/sprites/dead_snake.png" id="22_n75dp"]
 
 [sub_resource type="Gradient" id="Gradient_5lsyw"]
@@ -40,6 +40,9 @@ texture = SubResource("GradientTexture2D_kokaf")
 
 [sub_resource type="TileSet" id="TileSet_24j03"]
 sources/0 = SubResource("TileSetAtlasSource_lp058")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n75dp"]
+resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j04uq"]
 resource_local_to_scene = true
@@ -69,9 +72,6 @@ resource_local_to_scene = true
 resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n157j"]
-resource_local_to_scene = true
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jirt8"]
 resource_local_to_scene = true
 
 [node name="Main" type="Node2D" unique_id=1339752343]
@@ -190,7 +190,7 @@ script = ExtResource("5_dbro3")
 position = Vector2(288, 160)
 
 [node name="RoomShape" parent="Rooms/Temple/Area2D" parent_id_path=PackedInt32Array(857525345, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_j04uq")
+shape = SubResource("RectangleShape2D_n75dp")
 
 [node name="SecretArea" parent="Rooms" unique_id=159630187 instance=ExtResource("6_2lg1k")]
 inside = false
@@ -202,7 +202,7 @@ position = Vector2(304, 0)
 position = Vector2(592, 160)
 
 [node name="RoomShape" parent="Rooms/SecretArea/Area2D" parent_id_path=PackedInt32Array(159630187, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_tyryd")
+shape = SubResource("RectangleShape2D_j04uq")
 
 [node name="Outside" parent="Rooms" unique_id=43439420 instance=ExtResource("6_2lg1k")]
 inside = false
@@ -214,7 +214,7 @@ position = Vector2(-176, 160)
 position = Vector2(368, 544)
 
 [node name="RoomShape" parent="Rooms/Outside/Area2D" parent_id_path=PackedInt32Array(43439420, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_tx8mq")
+shape = SubResource("RectangleShape2D_tyryd")
 
 [node name="PushPuzzle" parent="Rooms" unique_id=1783096130 instance=ExtResource("6_2lg1k")]
 inside = false
@@ -226,7 +226,7 @@ position = Vector2(-432, 544)
 position = Vector2(-48, 704)
 
 [node name="RoomShape" parent="Rooms/PushPuzzle/Area2D" parent_id_path=PackedInt32Array(1783096130, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_xxm0n")
+shape = SubResource("RectangleShape2D_tx8mq")
 
 [node name="ButtonPuzzle" parent="Rooms" unique_id=1495381764 instance=ExtResource("6_2lg1k")]
 inside = false
@@ -238,7 +238,7 @@ position = Vector2(-816, 288)
 position = Vector2(-432, 704)
 
 [node name="RoomShape" parent="Rooms/ButtonPuzzle/Area2D" parent_id_path=PackedInt32Array(1495381764, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_2sd1y")
+shape = SubResource("RectangleShape2D_xxm0n")
 
 [node name="EnemyHolder" parent="Rooms/ButtonPuzzle/RoomObjects" parent_id_path=PackedInt32Array(1495381764, 1075803513) index="0" unique_id=1593787135 instance=ExtResource("11_24j03")]
 position = Vector2(-528, 560)
@@ -258,7 +258,7 @@ position = Vector2(-1168, 288)
 position = Vector2(-816, 592)
 
 [node name="RoomShape" parent="Rooms/DoubleButtonPuzzle/Area2D" parent_id_path=PackedInt32Array(791779921, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_am227")
+shape = SubResource("RectangleShape2D_2sd1y")
 
 [node name="GrassPath" parent="Rooms" unique_id=1448106018 instance=ExtResource("6_2lg1k")]
 inside = false
@@ -270,7 +270,7 @@ position = Vector2(-1200, 128)
 position = Vector2(-176, 288)
 
 [node name="RoomShape" parent="Rooms/GrassPath/Area2D" parent_id_path=PackedInt32Array(1448106018, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_7opv2")
+shape = SubResource("RectangleShape2D_am227")
 
 [node name="BeeEnemy" parent="Rooms/GrassPath/RoomObjects" parent_id_path=PackedInt32Array(1448106018, 1075803513) index="0" unique_id=1452326552 instance=ExtResource("11_24j03")]
 position = Vector2(-504, 176)
@@ -294,7 +294,7 @@ position = Vector2(-1168, -808)
 position = Vector2(0, 128)
 
 [node name="RoomShape" parent="Rooms/TreeMaze/Area2D" parent_id_path=PackedInt32Array(875321023, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_h8ax2")
+shape = SubResource("RectangleShape2D_7opv2")
 
 [node name="Dungeon" parent="Rooms" unique_id=913753963 instance=ExtResource("6_2lg1k")]
 
@@ -305,7 +305,7 @@ position = Vector2(160, 544)
 position = Vector2(464, 720)
 
 [node name="RoomShape" parent="Rooms/Dungeon/Area2D" parent_id_path=PackedInt32Array(913753963, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_r0lsc")
+shape = SubResource("RectangleShape2D_h8ax2")
 
 [node name="EnemyHolder" parent="Rooms/Dungeon/RoomObjects" parent_id_path=PackedInt32Array(913753963, 1075803513) index="0" unique_id=1334183336 instance=ExtResource("11_24j03")]
 position = Vector2(264, 640)
@@ -320,7 +320,7 @@ position = Vector2(-1424, 16)
 position = Vector2(-1200, 448)
 
 [node name="RoomShape" parent="Rooms/Dungeon2/Area2D" parent_id_path=PackedInt32Array(636305419, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_n157j")
+shape = SubResource("RectangleShape2D_r0lsc")
 
 [node name="Snake2" parent="Rooms/Dungeon2/RoomObjects" parent_id_path=PackedInt32Array(636305419, 1075803513) index="0" unique_id=1555743410 instance=ExtResource("11_24j03")]
 position = Vector2(-1272, 280)
@@ -343,7 +343,7 @@ position = Vector2(128, -480)
 position = Vector2(544, -128)
 
 [node name="RoomShape" parent="Rooms/Temple2/Area2D" parent_id_path=PackedInt32Array(57928978, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_jirt8")
+shape = SubResource("RectangleShape2D_n157j")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=186298135]
 
