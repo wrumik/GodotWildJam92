@@ -14,8 +14,9 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerStateMachine:
-		body.grab_item(item)
-		queue_free()
+		if not body.is_holding_ingredient:
+			body.grab_item(item)
+			queue_free()
 
 
 func _ready() -> void:

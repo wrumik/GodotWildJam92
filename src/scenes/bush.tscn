@@ -24,6 +24,7 @@ atlas = SubResource("CompressedTexture2D_qlnlq")
 region = Rect2(20, 5, 9, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xygfv"]
+size = Vector2(16, 16)
 
 [node name="Bush" type="AnimatableBody2D" unique_id=934778146]
 y_sort_enabled = true

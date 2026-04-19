@@ -28,6 +28,7 @@ polygon = PackedVector2Array(8, 8, 16, 8, 16, -8, 8, -8, 8, -16, -8, -16, -8, -8
 
 [node name="Label" type="Label" parent="Interaction" unique_id=710286022]
 unique_name_in_owner = true
+z_index = 1000
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

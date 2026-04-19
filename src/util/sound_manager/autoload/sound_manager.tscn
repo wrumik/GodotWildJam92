@@ -99,8 +99,10 @@ process_mode = 3
 script = ExtResource("1_l502s")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1815396952]
+bus = &"Music"
 
 [node name="AmbientPlayer" type="AudioStreamPlayer" parent="." unique_id=991596880]
+bus = &"Music"
 
 [node name="SFXPool" type="Node" parent="." unique_id=901498042]
 
@@ -108,10 +110,12 @@ script = ExtResource("1_l502s")
 
 [node name="Track1" type="AudioStreamPlayer" parent="MusicTracks" unique_id=1619000322]
 unique_name_in_owner = true
+bus = &"Music"
 
 [node name="Track2" type="AudioStreamPlayer" parent="MusicTracks" unique_id=495538519]
 unique_name_in_owner = true
 volume_db = -80.0
+bus = &"Music"
 
 [node name="TrackSwitcher" type="AnimationPlayer" parent="." unique_id=1428665657]
 libraries/ = SubResource("AnimationLibrary_10mv1")

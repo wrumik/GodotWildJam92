@@ -12,3 +12,5 @@ func collect_ingredient(_ingredient: Ingredient):
 	if GameData.ingredients_collected >= ingredients_to_win:
 		# WIN!
 		pass
+	else:
+		SoundManager.play_sfx(Sounds.DELIVER_INGREDIENT)

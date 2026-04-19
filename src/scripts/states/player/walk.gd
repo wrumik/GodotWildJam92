@@ -1,5 +1,6 @@
 extends State
 
+var played_bump: bool = false
 
 func physics_update(_delta: float) -> void:
 	var direction = parent.direction
@@ -12,6 +13,7 @@ func physics_update(_delta: float) -> void:
 			anim += "_ingredient"
 		if !parent.right_collision_check.is_colliding():
 			parent.target_position.x += 8
+			played_bump = false
 		else:
 			collided_with(parent.right_collision_check.get_collider())
 	elif direction.x < 0 && can_move:
@@ -20,6 +22,7 @@ func physics_update(_delta: float) -> void:
 			anim += "_ingredient"
 		if !parent.left_collision_check.is_colliding():
 			parent.target_position.x -= 8
+			played_bump = false
 		else:
 			collided_with(parent.left_collision_check.get_collider())
 	elif direction.y > 0 && can_move:
@@ -28,6 +31,7 @@ func physics_update(_delta: float) -> void:
 			anim += "_ingredient"
 		if !parent.down_collision_check.is_colliding():
 			parent.target_position.y += 8
+			played_bump = false
 		else:
 			for id in parent.down_collision_check.get_collision_count():
 				collided_with(parent.down_collision_check.get_collider(id))
@@ -37,6 +41,7 @@ func physics_update(_delta: float) -> void:
 			anim += "_ingredient"
 		if !parent.up_collision_check.is_colliding():
 			parent.target_position.y -= 8
+			played_bump = false
 		else:
 			for id in parent.up_collision_check.get_collision_count():
 				collided_with(parent.up_collision_check.get_collider(id))
@@ -66,9 +71,19 @@ func exit() -> void:
 
 
 func collided_with(collider: Node2D) -> void:
+	var bumped: bool = true
 	if collider is UnlockableBody:
-		if parent.keys <= 0:
-			return
-			
-		parent.keys -= 1	
-		collider.unlock()
+		if parent.keys > 0:
+			bumped = false
+		if not bumped:
+			parent.keys -= 1	
+			collider.unlock()
+			played_bump = false
+	
+	if bumped and not played_bump:
+		played_bump = true
+		SoundManager.play_sfx(Sounds.BUMP_WALL, 0.4)
+
+
+func enter() -> void:
+	played_bump = false

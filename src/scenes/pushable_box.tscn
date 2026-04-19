@@ -8,7 +8,7 @@ atlas = ExtResource("2_278db")
 region = Rect2(48, 112, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_278db"]
-size = Vector2(16, 16)
+size = Vector2(14, 14)
 
 [sub_resource type="Curve" id="Curve_278db"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6648936, 0.7415731), -1.6002723, -1.6002723, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
