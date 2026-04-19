@@ -4,12 +4,16 @@ extends Node
 @export var body: CharacterBody2D
 @export var grid_size: int = 8
 @export var move_speed: float = 65.0
+@export var ignore_grid: bool = false
 
 var direction: Vector2i = Vector2.ZERO
 var current_target: Vector2i = Vector2.ZERO
 
 
 func _ready() -> void:
+	if not body:
+		return
+		
 	assert(body)
 	
 	body.global_position = body.global_position.snapped(Vector2(grid_size, grid_size))
@@ -17,7 +21,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if not body:
+	if not body or ignore_grid:
 		return
 		
 	var can_move = Vector2i(body.global_position) == current_target
@@ -25,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	if can_move:
 		current_target += direction * grid_size
 	
-	body.global_position = body.global_position.move_toward(current_target, move_speed * delta)
+	#body.global_position = body.global_position.move_toward(current_target, move_speed * delta)
 
 
 static func dir_to_cardinal(dir: Vector2) -> Vector2i:
@@ -43,6 +47,9 @@ static func dir_to_cardinal(dir: Vector2) -> Vector2i:
 	
 
 func pick_direction(to: Vector2) -> void:
+	if not body:
+		return
+		
 	if to == body.global_position:
 		direction = Vector2i.ZERO
 		return

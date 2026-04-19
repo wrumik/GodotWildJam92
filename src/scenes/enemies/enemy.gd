@@ -77,4 +77,5 @@ func check_target() -> void:
 
 func attack() -> void:
 	if $RotatingMeleeAttack.try_attack(target.global_position):
-		animator.play_attack()
+		if animator:
+			animator.play_attack()

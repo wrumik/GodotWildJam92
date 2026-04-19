@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://3ty7xnxylxbt" path="res://src/scenes/pushable_box.tscn" id="9_kokaf"]
 [ext_resource type="PackedScene" uid="uid://brndi6l01vp4b" path="res://src/scenes/enemies/cloaked_enemy.tscn" id="10_lp058"]
 [ext_resource type="PackedScene" uid="uid://bmjpjcydhm7dt" path="res://src/scenes/enemies/enemy_holder.tscn" id="11_24j03"]
+[ext_resource type="PackedScene" uid="uid://dc6r8ixijdnk1" path="res://src/scenes/enemies/bee.tscn" id="11_v252j"]
 [ext_resource type="PackedScene" uid="uid://cj541qp11kaub" path="res://src/scenes/button.tscn" id="13_kbdt0"]
 [ext_resource type="PackedScene" uid="uid://b4x27exealnwn" path="res://src/scenes/gate.tscn" id="14_4rjby"]
 [ext_resource type="PackedScene" uid="uid://dmqdk3br6fx15" path="res://src/scenes/ingredient.tscn" id="17_yk6rd"]
@@ -37,9 +38,6 @@ texture = SubResource("GradientTexture2D_kokaf")
 
 [sub_resource type="TileSet" id="TileSet_24j03"]
 sources/0 = SubResource("TileSetAtlasSource_lp058")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_htxff"]
-resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v252j"]
 resource_local_to_scene = true
@@ -69,6 +67,9 @@ resource_local_to_scene = true
 resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7opv2"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8ax2"]
 resource_local_to_scene = true
 
 [node name="Main" type="Node2D" unique_id=1339752343]
@@ -173,10 +174,6 @@ position = Vector2(-1000, 560)
 [node name="PushableBox4" parent="MapObjects" unique_id=359065098 instance=ExtResource("9_kokaf")]
 position = Vector2(104, 112)
 
-[node name="Ingredient2" parent="MapObjects" unique_id=1830856858 instance=ExtResource("17_yk6rd")]
-position = Vector2(184, 112)
-ingredient_sprite = ExtResource("18_htxff")
-
 [node name="Ingredient" parent="MapObjects" unique_id=1408290572 instance=ExtResource("17_yk6rd")]
 position = Vector2(-928, 344)
 ingredient_sprite = ExtResource("18_htxff")
@@ -191,7 +188,7 @@ script = ExtResource("5_dbro3")
 position = Vector2(288, 160)
 
 [node name="RoomShape" parent="Rooms/Temple/Area2D" parent_id_path=PackedInt32Array(857525345, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_htxff")
+shape = SubResource("RectangleShape2D_v252j")
 
 [node name="SecretArea" parent="Rooms" unique_id=159630187 instance=ExtResource("6_2lg1k")]
 inside = false
@@ -203,7 +200,7 @@ position = Vector2(304, 0)
 position = Vector2(592, 160)
 
 [node name="RoomShape" parent="Rooms/SecretArea/Area2D" parent_id_path=PackedInt32Array(159630187, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_v252j")
+shape = SubResource("RectangleShape2D_qsm7c")
 
 [node name="Outside" parent="Rooms" unique_id=43439420 instance=ExtResource("6_2lg1k")]
 inside = false
@@ -215,63 +212,75 @@ position = Vector2(-176, 160)
 position = Vector2(368, 544)
 
 [node name="RoomShape" parent="Rooms/Outside/Area2D" parent_id_path=PackedInt32Array(43439420, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_qsm7c")
-
-[node name="Outside2" parent="Rooms" unique_id=1783096130 instance=ExtResource("6_2lg1k")]
-inside = false
-
-[node name="Corner1" parent="Rooms/Outside2" index="0" unique_id=761166111]
-position = Vector2(-432, 544)
-
-[node name="Corner2" parent="Rooms/Outside2" index="1" unique_id=1252245146]
-position = Vector2(-48, 704)
-
-[node name="RoomShape" parent="Rooms/Outside2/Area2D" parent_id_path=PackedInt32Array(1783096130, 1455719450) index="0" unique_id=408389936]
 shape = SubResource("RectangleShape2D_n75dp")
 
-[node name="Outside3" parent="Rooms" unique_id=1495381764 instance=ExtResource("6_2lg1k")]
+[node name="PushPuzzle" parent="Rooms" unique_id=1783096130 instance=ExtResource("6_2lg1k")]
 inside = false
 
-[node name="Corner1" parent="Rooms/Outside3" index="0" unique_id=761166111]
-position = Vector2(-816, 288)
+[node name="Corner1" parent="Rooms/PushPuzzle" index="0" unique_id=761166111]
+position = Vector2(-432, 544)
 
-[node name="Corner2" parent="Rooms/Outside3" index="1" unique_id=1252245146]
-position = Vector2(-432, 704)
+[node name="Corner2" parent="Rooms/PushPuzzle" index="1" unique_id=1252245146]
+position = Vector2(-48, 704)
 
-[node name="RoomShape" parent="Rooms/Outside3/Area2D" parent_id_path=PackedInt32Array(1495381764, 1455719450) index="0" unique_id=408389936]
+[node name="RoomShape" parent="Rooms/PushPuzzle/Area2D" parent_id_path=PackedInt32Array(1783096130, 1455719450) index="0" unique_id=408389936]
 shape = SubResource("RectangleShape2D_j04uq")
 
-[node name="EnemyHolder" parent="Rooms/Outside3/RoomObjects" parent_id_path=PackedInt32Array(1495381764, 1075803513) index="0" unique_id=1555743410 instance=ExtResource("11_24j03")]
+[node name="ButtonPuzzle" parent="Rooms" unique_id=1495381764 instance=ExtResource("6_2lg1k")]
+inside = false
+
+[node name="Corner1" parent="Rooms/ButtonPuzzle" index="0" unique_id=761166111]
+position = Vector2(-816, 288)
+
+[node name="Corner2" parent="Rooms/ButtonPuzzle" index="1" unique_id=1252245146]
+position = Vector2(-432, 704)
+
+[node name="RoomShape" parent="Rooms/ButtonPuzzle/Area2D" parent_id_path=PackedInt32Array(1495381764, 1455719450) index="0" unique_id=408389936]
+shape = SubResource("RectangleShape2D_tyryd")
+
+[node name="EnemyHolder" parent="Rooms/ButtonPuzzle/RoomObjects" parent_id_path=PackedInt32Array(1495381764, 1075803513) index="0" unique_id=1555743410 instance=ExtResource("11_24j03")]
 position = Vector2(-528, 560)
 enemy_to_spawn = ExtResource("10_lp058")
 
-[node name="EnemyHolder2" parent="Rooms/Outside3/RoomObjects" parent_id_path=PackedInt32Array(1495381764, 1075803513) index="1" unique_id=430312203 instance=ExtResource("11_24j03")]
+[node name="EnemyHolder2" parent="Rooms/ButtonPuzzle/RoomObjects" parent_id_path=PackedInt32Array(1495381764, 1075803513) index="1" unique_id=430312203 instance=ExtResource("11_24j03")]
 position = Vector2(-704, 480)
 enemy_to_spawn = ExtResource("10_lp058")
 
-[node name="PuzzleRoom" parent="Rooms" unique_id=791779921 instance=ExtResource("6_2lg1k")]
+[node name="DoubleButtonPuzzle" parent="Rooms" unique_id=791779921 instance=ExtResource("6_2lg1k")]
 inside = false
 
-[node name="Corner1" parent="Rooms/PuzzleRoom" index="0" unique_id=761166111]
+[node name="Corner1" parent="Rooms/DoubleButtonPuzzle" index="0" unique_id=761166111]
 position = Vector2(-1168, 288)
 
-[node name="Corner2" parent="Rooms/PuzzleRoom" index="1" unique_id=1252245146]
+[node name="Corner2" parent="Rooms/DoubleButtonPuzzle" index="1" unique_id=1252245146]
 position = Vector2(-816, 592)
 
-[node name="RoomShape" parent="Rooms/PuzzleRoom/Area2D" parent_id_path=PackedInt32Array(791779921, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_tyryd")
+[node name="RoomShape" parent="Rooms/DoubleButtonPuzzle/Area2D" parent_id_path=PackedInt32Array(791779921, 1455719450) index="0" unique_id=408389936]
+shape = SubResource("RectangleShape2D_tx8mq")
 
-[node name="Outside4" parent="Rooms" unique_id=1448106018 instance=ExtResource("6_2lg1k")]
+[node name="GrassPath" parent="Rooms" unique_id=1448106018 instance=ExtResource("6_2lg1k")]
 inside = false
 
-[node name="Corner1" parent="Rooms/Outside4" index="0" unique_id=761166111]
+[node name="Corner1" parent="Rooms/GrassPath" index="0" unique_id=761166111]
 position = Vector2(-1200, 128)
 
-[node name="Corner2" parent="Rooms/Outside4" index="1" unique_id=1252245146]
+[node name="Corner2" parent="Rooms/GrassPath" index="1" unique_id=1252245146]
 position = Vector2(-176, 288)
 
-[node name="RoomShape" parent="Rooms/Outside4/Area2D" parent_id_path=PackedInt32Array(1448106018, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_tx8mq")
+[node name="RoomShape" parent="Rooms/GrassPath/Area2D" parent_id_path=PackedInt32Array(1448106018, 1455719450) index="0" unique_id=408389936]
+shape = SubResource("RectangleShape2D_xxm0n")
+
+[node name="BeeEnemy" parent="Rooms/GrassPath/RoomObjects" parent_id_path=PackedInt32Array(1448106018, 1075803513) index="0" unique_id=1452326552 instance=ExtResource("11_24j03")]
+position = Vector2(-504, 176)
+enemy_to_spawn = ExtResource("11_v252j")
+
+[node name="BeeEnemy2" parent="Rooms/GrassPath/RoomObjects" parent_id_path=PackedInt32Array(1448106018, 1075803513) index="1" unique_id=682554982 instance=ExtResource("11_24j03")]
+position = Vector2(-400, 216)
+enemy_to_spawn = ExtResource("11_v252j")
+
+[node name="BeeEnemy3" parent="Rooms/GrassPath/RoomObjects" parent_id_path=PackedInt32Array(1448106018, 1075803513) index="2" unique_id=410650929 instance=ExtResource("11_24j03")]
+position = Vector2(-496, 256)
+enemy_to_spawn = ExtResource("11_v252j")
 
 [node name="TreeMaze" parent="Rooms" unique_id=875321023 instance=ExtResource("6_2lg1k")]
 inside = false
@@ -280,10 +289,10 @@ inside = false
 position = Vector2(-1168, -808)
 
 [node name="Corner2" parent="Rooms/TreeMaze" index="1" unique_id=1252245146]
-position = Vector2(0, 160)
+position = Vector2(0, 128)
 
 [node name="RoomShape" parent="Rooms/TreeMaze/Area2D" parent_id_path=PackedInt32Array(875321023, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_xxm0n")
+shape = SubResource("RectangleShape2D_2sd1y")
 
 [node name="Dungeon" parent="Rooms" unique_id=913753963 instance=ExtResource("6_2lg1k")]
 
@@ -294,7 +303,7 @@ position = Vector2(160, 544)
 position = Vector2(464, 720)
 
 [node name="RoomShape" parent="Rooms/Dungeon/Area2D" parent_id_path=PackedInt32Array(913753963, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_2sd1y")
+shape = SubResource("RectangleShape2D_am227")
 
 [node name="EnemyHolder" parent="Rooms/Dungeon/RoomObjects" parent_id_path=PackedInt32Array(913753963, 1075803513) index="0" unique_id=1334183336 instance=ExtResource("11_24j03")]
 position = Vector2(264, 640)
@@ -309,7 +318,7 @@ position = Vector2(-1424, 16)
 position = Vector2(-1200, 448)
 
 [node name="RoomShape" parent="Rooms/Dungeon2/Area2D" parent_id_path=PackedInt32Array(636305419, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_am227")
+shape = SubResource("RectangleShape2D_7opv2")
 
 [node name="EnemyHolder" parent="Rooms/Dungeon2/RoomObjects" parent_id_path=PackedInt32Array(636305419, 1075803513) index="0" unique_id=313977284 instance=ExtResource("11_24j03")]
 position = Vector2(264, 640)
@@ -324,7 +333,7 @@ position = Vector2(128, -480)
 position = Vector2(544, -128)
 
 [node name="RoomShape" parent="Rooms/Temple2/Area2D" parent_id_path=PackedInt32Array(57928978, 1455719450) index="0" unique_id=408389936]
-shape = SubResource("RectangleShape2D_7opv2")
+shape = SubResource("RectangleShape2D_h8ax2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=186298135]
 
@@ -334,10 +343,10 @@ visible = false
 [editable path="Rooms/Temple"]
 [editable path="Rooms/SecretArea"]
 [editable path="Rooms/Outside"]
-[editable path="Rooms/Outside2"]
-[editable path="Rooms/Outside3"]
-[editable path="Rooms/PuzzleRoom"]
-[editable path="Rooms/Outside4"]
+[editable path="Rooms/PushPuzzle"]
+[editable path="Rooms/ButtonPuzzle"]
+[editable path="Rooms/DoubleButtonPuzzle"]
+[editable path="Rooms/GrassPath"]
 [editable path="Rooms/TreeMaze"]
 [editable path="Rooms/Dungeon"]
 [editable path="Rooms/Dungeon2"]
